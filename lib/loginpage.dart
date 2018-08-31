@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 void main() => runApp(Login());
 
 class Login extends StatelessWidget
 {
-  /*AnimationController _controller;
-   Animation<double> _animation;
-   bool upDown = true;*/
   @override
   Widget build(BuildContext context) {
     return MaterialApp
