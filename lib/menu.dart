@@ -22,9 +22,9 @@ class menu extends StatelessWidget{
 }
 class menuPage  extends StatefulWidget
 {  final drawerItems = [
-  new DrawerItem("HOME", Icons.home),
-  new DrawerItem("LMS", Icons.perm_contact_calendar),
-  new DrawerItem("TIME SHEET", Icons.timeline)
+  new DrawerItem(" HOME", Icons.home),
+  new DrawerItem(" LMS", Icons.perm_contact_calendar),
+  new DrawerItem(" TIME SHEET", Icons.timeline)
 ];
 
 @override
@@ -57,9 +57,10 @@ class menuPageState extends State<menuPage> {
         title: new Container(
         child: Row(
             children: <Widget>[
-              Text(widget.drawerItems[_selectedDrawerIndex].title),
-
               Icon(widget.drawerItems[_selectedDrawerIndex].icon),
+              Text(widget.drawerItems[_selectedDrawerIndex].title)
+
+
 
           ],
 
