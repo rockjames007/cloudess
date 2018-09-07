@@ -71,6 +71,7 @@ class menuPageState extends State<menuPage> {
       drawer: new Drawer(
           child: new Container(decoration: new BoxDecoration(color: Colors.white),
           child: new ListView(
+            padding: const EdgeInsets.all(0.0),
             children: <Widget> [
               new UserAccountsDrawerHeader(
                   
