@@ -18,9 +18,8 @@ class Login extends StatelessWidget
        body: new Container
          (
          decoration: BoxDecoration(
-           image: DecorationImage(image: AssetImage("assets/backgroundpicture.jpg"),
+           image: DecorationImage(image: AssetImage("assets/backgroundcolor.png"),
                fit: BoxFit.cover,
-             colorFilter: ColorFilter.mode(Colors.black54, BlendMode.darken)
            )
          ),
          child: Center(
@@ -86,7 +85,7 @@ class Login extends StatelessWidget
                            (
                            child: new Text('login'),
                            elevation: 30.0,
-                           color: Colors.teal,
+                           color: Colors.blue.withOpacity(0.7),
                            splashColor: Colors.blue,
                            textColor: Colors.white,
                            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
