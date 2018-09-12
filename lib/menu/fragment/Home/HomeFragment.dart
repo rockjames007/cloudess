@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Home/UserBottomNavigationBar.dart';
+import 'package:xmplaressflutter/menu/menu.dart';
 void main() => runApp(HomeFragment());
 class HomeFragment extends StatelessWidget {
   @override
@@ -57,9 +58,9 @@ class HomeFragment extends StatelessWidget {
                  (
                    constraints:new BoxConstraints
                      (
-                     maxHeight: 360.0,
+                     maxHeight: 450.0,
                      maxWidth: double.infinity,
-                     minHeight: 360.0,
+                     minHeight: 450.0,
                      minWidth: double.infinity
                      ),
                  child: new DecoratedBox(
@@ -80,9 +81,80 @@ class HomeFragment extends StatelessWidget {
                                 )
                            ),
                            new Divider(color: Color.fromRGBO(13, 80, 121 , 1.0),indent: 1.0,),
+                           new ListTile(
+                             title: new Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: <Widget>[
+                             new InkWell(
+                             onTap:(){Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => UserBottomNavigationBar()),
+                           );},
+                             child: new Card(
+                                child: new Column(
+                                    children: <Widget>[
+                                      Icon(Icons.person,size: 150.0),
+                                      Text("Personal Information",style: TextStyle(fontWeight: FontWeight.bold))
+                                    ]
+                                )
+                             )
+                               ,
+                             ),
+                           new InkWell(
+                                 onTap:(){Navigator.push(
+                                context,
+                               MaterialPageRoute(builder: (context) => menu()),
+                                );},
+                               child: new Card(
+                               child:new Column(
+                                     children: <Widget>[
+                                       Icon(Icons.perm_contact_calendar,color:Color.fromRGBO(199, 0, 57, 1.0),size: 150.0),
+                                       Text("LMS",style: TextStyle(fontWeight: FontWeight.bold))
+                                     ]
+                                  )
+                                 )
+                                )
+                               ],
 
+                             ),
+                           ),
+                           new ListTile(
+                             title: new Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: <Widget>[
+                                 new InkWell(
+                                   onTap:(){Navigator.push(
+                                     context,
+                                     MaterialPageRoute(builder: (context) => UserBottomNavigationBar()),
+                                   );},
+                                   child: new Card(
+                                     child: new Column(
+                                         children: <Widget>[
+                                           Icon(Icons.timeline,size: 150.0,color:Color.fromRGBO(8, 165, 46, 1.0)),
+                                           Text("Time Sheet",style: TextStyle(fontWeight: FontWeight.bold))
+                                         ]
+                                     )
+                                       ,
+                                   ),
+                                 ),
+                               new InkWell(
+                                  onTap:(){Navigator.push(
+                                   context,
+                                    MaterialPageRoute(builder: (context) => UserBottomNavigationBar()),
+                                   );},
+                                    child: new Card(
+                                     child:new Column(
+                                         children: <Widget>[
+                                           Icon(Icons.timer,color:Colors.deepOrange,size: 150.0),
+                                           Text("EOD Report",style: TextStyle(fontWeight: FontWeight.bold))
+                                         ]
+                                     )
+                                 )
+                               )
+                               ],
 
-
+                             ),
+                           )
                          ],
                        )     
                    ],
