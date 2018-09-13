@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Home/HomeFragment.dart';
+import 'package:xmplaressflutter/menu/fragment/Home/UserBottomNavigationBar.dart';
 void main() => runApp(menu());
 class DrawerItem {
   String title;
@@ -23,8 +24,10 @@ class menu extends StatelessWidget{
 class menuPage  extends StatefulWidget
 {  final drawerItems = [
   new DrawerItem(" HOME", Icons.home),
+  new DrawerItem(" PERSONAL INFO", Icons.person),
   new DrawerItem(" LMS", Icons.perm_contact_calendar),
-  new DrawerItem(" TIME SHEET", Icons.timeline)
+  new DrawerItem(" TIME SHEET", Icons.timeline),
+  new DrawerItem(" EOD REPORT", Icons.timer),
 ];
 
 @override
@@ -40,6 +43,8 @@ class menuPageState extends State<menuPage> {
     switch (pos) {
       case 0:
         return new HomeFragment();
+      case 1:
+        return new UserBottomNavigationBar();
       default:
         return new Text("Error");
     }
@@ -83,29 +88,41 @@ class menuPageState extends State<menuPage> {
                   )
               ),
               new ListTile(
-                title: new Text('HOME'),
-                leading: new Icon(Icons.home),
+                title: new Text('HOME',style: TextStyle(color: Colors.blue),),
+                leading: new Icon(Icons.home,color: Colors.blue,),
                 onTap: () => _onSelectItem(0),
+                selected: 0 == _selectedDrawerIndex,
 
               ),
               new Divider(),
               new ListTile(
-                title: new Text('LMS'),
-                leading: new Icon(Icons.perm_contact_calendar),
-                onTap: () => _onSelectItem(1),
+                title: new Text('PERSONAL INFO',style: TextStyle(color:Colors.black),),
+                leading: new Icon(Icons.person,color: Colors.black,),
+                onTap: () {
+                  _selectedDrawerIndex=1;
+                  _onSelectItem(1);
+                  },
+                selected: 1== _selectedDrawerIndex,
               ),
               new Divider(),
               new ListTile(
-                leading: new Icon(Icons.timeline),
-                title: new Text('TIME SHEET'),
+                title: new Text('LMS',style: TextStyle(color:Color.fromRGBO(199, 0, 57, 1.0)),),
+                leading: new Icon(Icons.perm_contact_calendar,color: Color.fromRGBO(199, 0, 57, 1.0),),
                 onTap: () => _onSelectItem(2),
               ),
               new Divider(),
-              new Container(
-                child:
-                new DecoratedBox(decoration: BoxDecoration(color: Colors.greenAccent))
-
+              new ListTile(
+                leading: new Icon(Icons.timeline,color:Color.fromRGBO(8, 165, 46, 1.0),),
+                title: new Text('TIME SHEET',style: TextStyle(color: Color.fromRGBO(8, 165, 46, 1.0)),),
+                onTap: () => _onSelectItem(3),
               ),
+              new Divider(),
+              new ListTile(
+                leading: new Icon(Icons.timer,color:Colors.deepOrange,),
+                title: new Text('EOD REPORT',style: TextStyle(color: Colors.deepOrange),),
+                onTap: () => _onSelectItem(4),
+              ),
+              new Divider(),
             ],
           )
           )

@@ -88,7 +88,7 @@ class HomeFragment extends StatelessWidget {
                              new InkWell(
                              onTap:(){Navigator.push(
                            context,
-                           MaterialPageRoute(builder: (context) => UserBottomNavigationBar()),
+                           MaterialPageRoute(builder: (context) => UserBottomNavigationBar()) ,
                            );},
                              child: new Card(
                                 child: new Column(
