@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:xmplaressflutter/menu/fragment/Home/UserBottomNavigationBar.dart';
 import 'package:xmplaressflutter/menu/menu.dart';
 void main() => runApp(HomeFragment());
 class HomeFragment extends StatelessWidget {
@@ -88,7 +87,7 @@ class HomeFragment extends StatelessWidget {
                              new InkWell(
                              onTap:(){Navigator.push(
                            context,
-                           MaterialPageRoute(builder: (context) => UserBottomNavigationBar()) ,
+                           MaterialPageRoute(builder: (context) => menu(1)) ,
                            );},
                              child: new Card(
                                 child: new Column(
@@ -103,7 +102,7 @@ class HomeFragment extends StatelessWidget {
                            new InkWell(
                                  onTap:(){Navigator.push(
                                 context,
-                               MaterialPageRoute(builder: (context) => menu()),
+                               MaterialPageRoute(builder: (context)  => menu(2) ),
                                 );},
                                child: new Card(
                                child:new Column(
@@ -125,7 +124,7 @@ class HomeFragment extends StatelessWidget {
                                  new InkWell(
                                    onTap:(){Navigator.push(
                                      context,
-                                     MaterialPageRoute(builder: (context) => UserBottomNavigationBar()),
+                                     MaterialPageRoute(builder: (context) => menu(3)),
                                    );},
                                    child: new Card(
                                      child: new Column(
@@ -140,7 +139,7 @@ class HomeFragment extends StatelessWidget {
                                new InkWell(
                                   onTap:(){Navigator.push(
                                    context,
-                                    MaterialPageRoute(builder: (context) => UserBottomNavigationBar()),
+                                    MaterialPageRoute(builder: (context) => menu(4)),
                                    );},
                                     child: new Card(
                                      child:new Column(

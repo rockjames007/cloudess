@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Home/HomeFragment.dart';
-import 'package:xmplaressflutter/menu/fragment/Home/UserBottomNavigationBar.dart';
-void main() => runApp(menu());
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/PersonalInformation.dart';
+void main() => runApp(menu(int ));
 class DrawerItem {
   String title;
   IconData icon;
   DrawerItem(this.title, this.icon);
 }
 class menu extends StatelessWidget{
+  int _selectedDrawerIndex;
+  menu(pos)
+  {
+    _selectedDrawerIndex = pos;
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: new menuPage(),
+        home: new menuPage(_selectedDrawerIndex),
         debugShowCheckedModeBanner: false,
         theme: new ThemeData
           (
@@ -22,36 +27,44 @@ class menu extends StatelessWidget{
 
 }
 class menuPage  extends StatefulWidget
-{  final drawerItems = [
+{ int _selectedDrawer;
+  final drawerItems = [
   new DrawerItem(" HOME", Icons.home),
   new DrawerItem(" PERSONAL INFO", Icons.person),
   new DrawerItem(" LMS", Icons.perm_contact_calendar),
   new DrawerItem(" TIME SHEET", Icons.timeline),
   new DrawerItem(" EOD REPORT", Icons.timer),
 ];
-
+menuPage(int _selectedDrawerIndex)
+{
+  _selectedDrawer=_selectedDrawerIndex;
+}
 @override
 State<StatefulWidget> createState() {
-  return new menuPageState();
+  return new menuPageState(_selectedDrawer);
 }
 }
 
 class menuPageState extends State<menuPage> {
-  int _selectedDrawerIndex = 0;
-
+  int _selectedDrawerIndex;
+  menuPageState(int pos) {
+    _selectedDrawerIndex = pos;
+  }
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
         return new HomeFragment();
       case 1:
-        return new UserBottomNavigationBar();
+        return new PersonalInformation();
       default:
         return new Text("Error");
     }
   }
 
   _onSelectItem(int index) {
-    setState(() => _selectedDrawerIndex = index);
+    setState((){
+      _selectedDrawerIndex = index;
+    });
     Navigator.of(context).pop(); // close the drawer
   }
 
@@ -64,9 +77,6 @@ class menuPageState extends State<menuPage> {
             children: <Widget>[
               Icon(widget.drawerItems[_selectedDrawerIndex].icon),
               Text(widget.drawerItems[_selectedDrawerIndex].title)
-
-
-
           ],
 
         ),
@@ -88,39 +98,41 @@ class menuPageState extends State<menuPage> {
                   )
               ),
               new ListTile(
-                title: new Text('HOME',style: TextStyle(color: Colors.blue),),
-                leading: new Icon(Icons.home,color: Colors.blue,),
+                title: new Text('HOME'),
+                leading: new Icon(Icons.home),
                 onTap: () => _onSelectItem(0),
                 selected: 0 == _selectedDrawerIndex,
 
               ),
               new Divider(),
               new ListTile(
-                title: new Text('PERSONAL INFO',style: TextStyle(color:Colors.black),),
-                leading: new Icon(Icons.person,color: Colors.black,),
+                title: new Text('PERSONAL INFO'),
+                leading: new Icon(Icons.person),
                 onTap: () {
-                  _selectedDrawerIndex=1;
                   _onSelectItem(1);
                   },
                 selected: 1== _selectedDrawerIndex,
               ),
               new Divider(),
               new ListTile(
-                title: new Text('LMS',style: TextStyle(color:Color.fromRGBO(199, 0, 57, 1.0)),),
-                leading: new Icon(Icons.perm_contact_calendar,color: Color.fromRGBO(199, 0, 57, 1.0),),
+                title: new Text('LMS'),
+                leading: new Icon(Icons.perm_contact_calendar),
                 onTap: () => _onSelectItem(2),
+                selected: 2== _selectedDrawerIndex,
               ),
               new Divider(),
               new ListTile(
-                leading: new Icon(Icons.timeline,color:Color.fromRGBO(8, 165, 46, 1.0),),
-                title: new Text('TIME SHEET',style: TextStyle(color: Color.fromRGBO(8, 165, 46, 1.0)),),
+                leading: new Icon(Icons.timeline),
+                title: new Text('TIME SHEET'),
                 onTap: () => _onSelectItem(3),
+                selected: 3== _selectedDrawerIndex,
               ),
               new Divider(),
               new ListTile(
-                leading: new Icon(Icons.timer,color:Colors.deepOrange,),
-                title: new Text('EOD REPORT',style: TextStyle(color: Colors.deepOrange),),
+                leading: new Icon(Icons.timer),
+                title: new Text('EOD REPORT'),
                 onTap: () => _onSelectItem(4),
+                selected: 4== _selectedDrawerIndex,
               ),
               new Divider(),
             ],

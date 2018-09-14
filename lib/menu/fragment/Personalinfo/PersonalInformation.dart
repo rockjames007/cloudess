@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
-void main() => runApp(UserBottomNavigationBar());
-class UserBottomNavigationBar extends StatelessWidget {
+void main() => runApp(PersonalInformation());
+class PersonalInformation extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _UserInfoState();
+  }
+}
+
+class _UserInfoState extends State<PersonalInformation>
+{
+  int _currentIndex = 0;
+  final List<Widget> _children = [PlaceholderWidget(Colors.white),
+  PlaceholderWidget(Colors.deepOrange),
+  PlaceholderWidget(Colors.green)];
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      bottomNavigationBar: BottomNavigationBar
+        body: _children[_currentIndex],
+        bottomNavigationBar: BottomNavigationBar
         (
-        type: BottomNavigationBarType.fixed,
-
+        type: BottomNavigationBarType.fixed,// new
+          onTap: onTabTapped, // new
+          currentIndex: _currentIndex, //
         items:
         [
           BottomNavigationBarItem
             (
             icon: new Icon(Icons.info),
             title: new Text('Info', textScaleFactor: 0.7,),
-
           ),
           BottomNavigationBarItem
             (
@@ -44,7 +57,8 @@ class UserBottomNavigationBar extends StatelessWidget {
         ],
 
       ),
-        body: new SingleChildScrollView(
+    ) ;
+     /*   body: new SingleChildScrollView(
 
                child: new Column
                (
@@ -95,6 +109,24 @@ class UserBottomNavigationBar extends StatelessWidget {
           ]
         )
         )
+    );*/
+
+  }
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+}
+class PlaceholderWidget extends StatelessWidget {
+  final Color color;
+
+  PlaceholderWidget(this.color);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: color,
     );
   }
 }
