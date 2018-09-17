@@ -92,8 +92,8 @@ class HomeFragment extends StatelessWidget {
                              child: new Card(
                                 child: new Column(
                                     children: <Widget>[
-                                      Icon(Icons.person,size: 150.0),
-                                      Text("Personal Information",style: TextStyle(fontWeight: FontWeight.bold))
+                                      Icon(Icons.person,size: 150.0,color:Color.fromRGBO(62, 9, 182, 1.0)),
+                                      Text("Personal",style: TextStyle(fontWeight: FontWeight.bold))
                                     ]
                                 )
                              )

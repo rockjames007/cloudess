@@ -30,7 +30,7 @@ class menuPage  extends StatefulWidget
 { int _selectedDrawer;
   final drawerItems = [
   new DrawerItem(" HOME", Icons.home),
-  new DrawerItem(" PERSONAL INFO", Icons.person),
+  new DrawerItem(" PERSONAL", Icons.person),
   new DrawerItem(" LMS", Icons.perm_contact_calendar),
   new DrawerItem(" TIME SHEET", Icons.timeline),
   new DrawerItem(" EOD REPORT", Icons.timer),
@@ -106,7 +106,7 @@ class menuPageState extends State<menuPage> {
               ),
               new Divider(),
               new ListTile(
-                title: new Text('PERSONAL INFO'),
+                title: new Text('PERSONAL'),
                 leading: new Icon(Icons.person),
                 onTap: () {
                   _onSelectItem(1);
