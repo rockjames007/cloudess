@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+void main() => runApp(positionalInfoFragment());
+class positionalInfoFragment extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        body:new Container(
+          color: Colors.blue,
+        )
+
+    );
+  }
+}

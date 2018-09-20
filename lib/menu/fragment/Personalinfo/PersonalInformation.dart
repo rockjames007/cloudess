@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/info.dart';
 void main() => runApp(PersonalInformation());
 class PersonalInformation extends StatefulWidget {
   @override
