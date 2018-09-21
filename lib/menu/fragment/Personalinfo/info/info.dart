@@ -71,9 +71,9 @@ PlaceholderWidget(4),
                 (
                   constraints:new BoxConstraints
                     (
-                      maxHeight: 450.0,
+                      maxHeight: 490.0,
                       maxWidth: double.infinity,
-                      minHeight: 450.0,
+                      minHeight: 490.0,
                       minWidth: double.infinity
                   ),
                   child: new DecoratedBox(
@@ -124,7 +124,7 @@ PlaceholderWidget(4),
 
                         ),
                         Container(
-                           height: 390.0,
+                           height: 430.0,
                           width: double.infinity,
                           child: Scaffold(
                             body: _children[_currentIndex],

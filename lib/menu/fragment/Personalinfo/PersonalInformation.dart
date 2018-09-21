@@ -32,7 +32,7 @@ class _UserInfoState extends State<PersonalInformation>
           BottomNavigationBarItem
             (
             icon: new Icon(Icons.info),
-            title: new Text('Info', textScaleFactor: 0.7,),
+            title: new Text('Basic Info', textScaleFactor: 0.7,),
           ),
           BottomNavigationBarItem
             (
