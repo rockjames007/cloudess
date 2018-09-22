@@ -20,17 +20,15 @@ class officialInfoFragment extends StatelessWidget {
               ConstrainedBox(
                 constraints:new BoxConstraints
                   (
-                  maxHeight: 340.0,
+                  maxHeight: 400.0,
                   maxWidth: 350.0,
-                  minHeight: 340.0,
+                  minHeight: 400.0,
                   minWidth: 350.0,
                 ),
                 child: new DecoratedBox(
                   decoration: new BoxDecoration
                     (
-                    color: Colors.white,
-                    border: new Border.all(color: Color.fromRGBO(13, 80, 121 , 1.0),width: 5.0),
-                  ),
+                    ),
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -39,7 +37,7 @@ class officialInfoFragment extends StatelessWidget {
                           ListTile(
                             title:Column(
                               children: <Widget>[
-                                Text("Rerporting Manager:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                Text("Reporting Manager:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                                 Text("Sundararajan Aravamudhan",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
@@ -70,13 +68,32 @@ class officialInfoFragment extends StatelessWidget {
                           )
                       ),
                       Container(
+                          color: Color.fromRGBO(253, 240, 251, 1.0),
+                          child:
+                          ListTile(
+                            title:Text("Experience",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),)
+                          )
+                      ),
+                      Container(
+                          color: Color.fromRGBO(224, 251, 253, 1.0),
+                          child:
+                          ListTile(
+                            title:Column(
+                              children: <Widget>[
+                                Text("Past:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                Text("0Month(s)",style: TextStyle(fontSize: 15.0),)
+                              ],
+                            ) ,
+                          )
+                      ),
+                      Container(
                           color: Color.fromRGBO(240, 252, 253, 1.0),
                           child:
                           ListTile(
-                            title:Row(
+                            title:Column(
                               children: <Widget>[
-                                Text("Mother's Name:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("Mrudula Saji",style: TextStyle(fontSize: 15.0),)
+                                Text("With Xmplar:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                Text("0Year(s) 8Month(s)",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
                           )
@@ -85,22 +102,10 @@ class officialInfoFragment extends StatelessWidget {
                           color: Color.fromRGBO(224, 251, 253, 1.0),
                           child:
                           ListTile(
-                            title:Row(
+                            title:Column(
                               children: <Widget>[
-                                Text("Marital Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("Single",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Row(
-                              children: <Widget>[
-                                Text("Employee Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("Flutter Developer",style: TextStyle(fontSize: 15.0),)
+                                Text("Total:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                Text("8Month(s)",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
                           )

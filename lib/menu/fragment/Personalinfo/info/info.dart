@@ -19,6 +19,7 @@ PlaceholderWidget(2),
 PlaceholderWidget(3),
 PlaceholderWidget(4),
 ];
+final List<double> _size = [400.0,456.0,510.0,350.0,450.0];
   @override
     Widget build(BuildContext context) {
     return new SingleChildScrollView(
@@ -71,17 +72,16 @@ PlaceholderWidget(4),
                 (
                   constraints:new BoxConstraints
                     (
-                      maxHeight: 490.0,
+                      maxHeight: _size[_currentIndex]+60.0,
                       maxWidth: double.infinity,
-                      minHeight: 490.0,
+                      minHeight: _size[_currentIndex]+60.0,
                       minWidth: double.infinity
                   ),
                   child: new DecoratedBox(
 
                     decoration: new BoxDecoration
                       (
-                      color: Colors.white24,
-                      border: new Border.all(color: Color.fromRGBO(13, 80, 121 , 1.0),width: 5.0),
+                      color: Color.fromRGBO(13, 80, 121 , 1.0),
                     ),
                     child: new Column
                       (
@@ -124,7 +124,7 @@ PlaceholderWidget(4),
 
                         ),
                         Container(
-                           height: 430.0,
+                           height: _size[_currentIndex],
                           width: double.infinity,
                           child: Scaffold(
                             body: _children[_currentIndex],

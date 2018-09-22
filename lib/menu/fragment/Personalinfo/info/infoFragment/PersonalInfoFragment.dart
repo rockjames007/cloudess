@@ -29,9 +29,7 @@ class PersonalInfoFragment extends StatelessWidget {
                  child: new DecoratedBox(
                    decoration: new BoxDecoration
                      (
-                     color: Colors.white,
-                     border: new Border.all(color: Color.fromRGBO(13, 80, 121 , 1.0),width: 5.0),
-                   ),
+                     ),
                    child: Column(
                      children: <Widget>[
                        Container(
