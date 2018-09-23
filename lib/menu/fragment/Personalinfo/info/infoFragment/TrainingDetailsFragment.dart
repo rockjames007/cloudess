@@ -14,15 +14,15 @@ class TrainingDetailsFragment extends StatelessWidget {
                 ),
                 child:  ListTile(
                   title:Text('Training Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
-
+                  trailing: FloatingActionButton(onPressed: null,child: Icon(Icons.add),mini: true,),
                 ),
               ),
               ConstrainedBox(
                 constraints:new BoxConstraints
                   (
-                  maxHeight: 450.0,
+                  maxHeight: 300.0,
                   maxWidth: 350.0,
-                  minHeight: 450.0,
+                  minHeight: 300.0,
                   minWidth: 350.0,
                 ),
                 child: new DecoratedBox(
@@ -31,66 +31,7 @@ class TrainingDetailsFragment extends StatelessWidget {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Organization:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("Xmplar Management Solutions Private Limited",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Employee Position:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("java Developer",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Employee Position Date Range:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("17/01/2018",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Grade:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("JME",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Step:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
+
                     ],
                   ),
                 ),

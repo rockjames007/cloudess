@@ -13,7 +13,7 @@ class positionalInfoFragment extends StatelessWidget {
                   color: Colors.blue.shade100,
                 ),
                 child:  ListTile(
-                  title:Text('Training Type',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                  title:Text('Positional Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
 
                 ),
               ),

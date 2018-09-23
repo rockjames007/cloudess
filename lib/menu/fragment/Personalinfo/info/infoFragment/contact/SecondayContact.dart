@@ -23,7 +23,7 @@ class SecondaryContact extends StatelessWidget {
               ),
             ),
             Container(
-                color: Color.fromRGBO(224, 251, 253, 1.0),
+                color: Color.fromRGBO(255, 237, 232, 1.0),
                 child:
                 ListTile(
                   title: Column(
@@ -39,20 +39,20 @@ class SecondaryContact extends StatelessWidget {
                 )
             ),
             Container(
-                color: Color.fromRGBO(240, 252, 253, 1.0),
+                color: Color.fromRGBO(253, 244, 240, 1.0),
                 child:
                 ListTile(
                   title: Column(
                     children: <Widget>[
                       Text("Phone Number:", style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 15.0),),
-                      Text("991626628", style: TextStyle(fontSize: 15.0),)
+                      Text("9916266228", style: TextStyle(fontSize: 15.0),)
                     ],
                   ),
                 )
             ),
             Container(
-                color: Color.fromRGBO(224, 251, 253, 1.0),
+                color: Color.fromRGBO(255, 237, 232, 1.0),
                 child:
                 ListTile(
                   title: Column(

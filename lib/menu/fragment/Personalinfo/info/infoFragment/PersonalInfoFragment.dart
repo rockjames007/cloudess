@@ -14,8 +14,9 @@ class PersonalInfoFragment extends StatelessWidget {
                 ),
                 child:  ListTile(
                     title:Text('Personal Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
-                  trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed: null),
-                        
+                  trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:null
+                  ),
+
                 ),
               ),
              ConstrainedBox(

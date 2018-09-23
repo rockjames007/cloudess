@@ -50,7 +50,7 @@ class _ContactInfoState extends State<ContactInfoFragment>
                        child: Container(
                          height: 25.0,
                          width: 172.0,
-                         child: Text("Secodary",textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
+                         child: Text("Secondary",textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
                        )
                    )
                    ),
