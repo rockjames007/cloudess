@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditPersonInfo.dart';
 void main() => runApp(PersonalInfoFragment());
 class PersonalInfoFragment extends StatelessWidget {
   @override
@@ -14,7 +15,8 @@ class PersonalInfoFragment extends StatelessWidget {
                 ),
                 child:  ListTile(
                     title:Text('Personal Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
-                  trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:null
+                  trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:(){showDialog(context: context,builder: (BuildContext context){return EditPersonInfo();
+                  });}
                   ),
 
                 ),
