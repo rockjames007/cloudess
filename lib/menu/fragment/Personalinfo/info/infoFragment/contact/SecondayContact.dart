@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditSecondaryContactDetails.dart';
+import 'package:flutter/services.dart';
 void main() => runApp(SecondaryContact());
 class SecondaryContact extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class SecondaryContact extends StatelessWidget {
                 title: Text('Secondary Contact Details', style: TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 18.0),),
                 trailing: FloatingActionButton(
-                  onPressed:(){showDialog(context:context,builder:(BuildContext context){return EditSecondaryContactDetails();});}, child: Icon(Icons.edit), mini: true,),
+                  onPressed:(){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});}, child: Icon(Icons.edit), mini: true,),
               ),
             ),
             Container(

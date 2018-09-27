@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/contact/PrimaryContact.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/contact/SecondayContact.dart';
+import 'package:flutter/services.dart';
 void main() => runApp(ContactInfoFragment());
 class ContactInfoFragment extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _ContactInfoState extends State<ContactInfoFragment>
                Row(
                  children: <Widget>[
                    new InkWell(
-                     onTap:(){ onTabTapped(_currentIndex=0);},
+                     onTap:(){ HapticFeedback.vibrate();onTabTapped(_currentIndex=0);},
                    child:Card(
                      color: Color.fromRGBO(195, 250, 222,1.0),
                      elevation: 250.0,
@@ -43,7 +44,7 @@ class _ContactInfoState extends State<ContactInfoFragment>
                    ),
                    ),
                    new InkWell(
-                     onTap:(){ onTabTapped(_currentIndex=1);},
+                     onTap:(){ HapticFeedback.vibrate(); onTabTapped(_currentIndex=1);},
                      child:
                    Card(
                        color: Color.fromRGBO(250, 211, 195,1.0),

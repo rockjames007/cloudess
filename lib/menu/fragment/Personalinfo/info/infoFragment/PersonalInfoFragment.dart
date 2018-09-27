@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditPersonInfo.dart';
+import 'package:flutter/services.dart';
 void main() => runApp(PersonalInfoFragment());
 class PersonalInfoFragment extends StatelessWidget {
   @override
@@ -15,7 +16,7 @@ class PersonalInfoFragment extends StatelessWidget {
                 ),
                 child:  ListTile(
                     title:Text('Personal Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
-                  trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:(){showDialog(context: context,builder: (BuildContext context){return EditPersonInfo();
+                  trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:(){showDialog(context: context,builder: (BuildContext context){HapticFeedback.vibrate();return EditPersonInfo();
                   });}
                   ),
 
@@ -24,9 +25,9 @@ class PersonalInfoFragment extends StatelessWidget {
              ConstrainedBox(
                constraints:new BoxConstraints
                  (
-                 maxHeight: 340.0,
+                 maxHeight: 234.0,
                  maxWidth: 350.0,
-                 minHeight: 340.0,
+                 minHeight: 234.0,
                  minWidth: 350.0,
                ),
                  child: new DecoratedBox(
@@ -37,72 +38,66 @@ class PersonalInfoFragment extends StatelessWidget {
                      children: <Widget>[
                        Container(
                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                      child:
-                       ListTile(
-                         title:Column(
-                           children: <Widget>[
+                         height:76.0 ,
+                      child:ListTile(
+                         title:Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                           children: <Widget>
+                           [
+                             Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                             children: <Widget>
+                             [
                              Text("Gender:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                              Text("Male",style: TextStyle(fontSize: 15.0),)
-                           ],
-                         ) ,
+                             ],) ,
+                             Column(
+                               crossAxisAlignment: CrossAxisAlignment.end,
+                             children: <Widget>
+                             [
+                             Text("Date of Birth:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                             Text("10/01/1997",style: TextStyle(fontSize: 15.0),)
+                             ],) ,
+                          ],
+                         ),
                        )
                        ),
                        Container(
+                           height:76.0 ,
                            color: Color.fromRGBO(240, 252, 253, 1.0),
-                           child:
-                           ListTile(
-                             title:Column(
-                               children: <Widget>[
-                                 Text("Date of Birth:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text("10/01/1997",style: TextStyle(fontSize: 15.0),)
+                           child:ListTile(
+                             title:Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: <Widget>
+                               [
+                                 Column(
+                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                   children: <Widget>[
+                                   Text("Employee Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                   Text("Flutter Developer",style: TextStyle(fontSize: 15.0),)
+                                   ],
+                                   ) ,
+                                 Column(
+                                   crossAxisAlignment: CrossAxisAlignment.end,
+                                   children: <Widget>
+                                   [
+                                     Text("Marital Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                     Text("Single",style: TextStyle(fontSize: 15.0),)
+                                   ],) ,
                                ],
-                             ) ,
+                             ),
                            )
                        ),
                        Container(
+                           height:76.0 ,
                            color: Color.fromRGBO(224, 251, 253, 1.0),
                            child:
                            ListTile(
                              title:Column(
-                               children: <Widget>[
-                                 Text("Blood Group:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text("O+",style: TextStyle(fontSize: 15.0),)
-                               ],
-                             ) ,
-                           )
-                       ),
-                       Container(
-                           color: Color.fromRGBO(240, 252, 253, 1.0),
-                           child:
-                           ListTile(
-                             title:Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
                                children: <Widget>[
                                  Text("Mother's Name:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                                  Text("Mrudula Saji",style: TextStyle(fontSize: 15.0),)
-                               ],
-                             ) ,
-                           )
-                       ),
-                       Container(
-                           color: Color.fromRGBO(224, 251, 253, 1.0),
-                           child:
-                           ListTile(
-                             title:Column(
-                               children: <Widget>[
-                                 Text("Marital Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text("Single",style: TextStyle(fontSize: 15.0),)
-                               ],
-                             ) ,
-                           )
-                       ),
-                       Container(
-                           color: Color.fromRGBO(240, 252, 253, 1.0),
-                           child:
-                           ListTile(
-                             title:Column(
-                               children: <Widget>[
-                                 Text("Employee Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text("Flutter Developer",style: TextStyle(fontSize: 15.0),)
                                ],
                              ) ,
                            )

@@ -66,8 +66,8 @@ class HomeFragment extends StatelessWidget {
                    decoration: new BoxDecoration
                      ( 
                        color: Colors.white24,
-                     border: new Border.all(color: Color.fromRGBO(13, 80, 121 , 1.0),width: 5.0),
-                    ),
+                      border: new Border.all(color: Color.fromRGBO(13, 80, 121 , 1.0),width: 5.0),
+                     ),
                    child: new Column(
                      children: <Widget>[
                        new Column(

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/info.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/Qualification/qualification.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/document/Document.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/bankDetails/BankDetails.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/fixedAsset/FixedAsset.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/family/Family.dart';
 void main() => runApp(PersonalInformation());
 class PersonalInformation extends StatefulWidget {
   @override
@@ -81,8 +86,16 @@ class PlaceholderWidget extends StatelessWidget {
     switch (_selectedDrawerIndex) {
       case 0:
         return new info();
-      default:
-        return new Text("Error");
+      case 1:
+        return new Qualification();
+      case 2:
+        return new Document();
+      case 3:
+        return new BankDetails();
+      case 4:
+        return new FixedAsset();
+      case 5:
+        return new Family();
     }
     }
   }

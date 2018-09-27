@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/AddTrainingDetails.dart';
+import 'package:flutter/services.dart';
 void main() => runApp(TrainingDetailsFragment());
 class TrainingDetailsFragment extends StatelessWidget {
   @override
@@ -14,7 +16,10 @@ class TrainingDetailsFragment extends StatelessWidget {
                 ),
                 child:  ListTile(
                   title:Text('Training Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
-                  trailing: FloatingActionButton(onPressed: null,child: Icon(Icons.add),mini: true,),
+                  trailing: FloatingActionButton(onPressed:(){showDialog(context: context,builder: (BuildContext context){
+                    HapticFeedback.vibrate();
+                    return AddTrainingDetails();
+                  } );},child: Icon(Icons.add),mini: true,),
                 ),
               ),
               ConstrainedBox(

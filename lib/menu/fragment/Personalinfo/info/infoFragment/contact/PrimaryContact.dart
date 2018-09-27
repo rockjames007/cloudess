@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditPrimaryContactDetails.dart';
+import 'package:flutter/services.dart';
 void main() => runApp(PrimaryContact());
 class PrimaryContact extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class PrimaryContact extends StatelessWidget {
                 title: Text('Primary Contact Details', style: TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 18.0),),
                 trailing: FloatingActionButton(
-                  onPressed:(){showDialog(context:context,builder:(BuildContext context){return EditPrimaryContactDetails();});}, child: Icon(Icons.edit), mini: true,),
+                  onPressed:(){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});}, child: Icon(Icons.edit), mini: true,),
               ),
             ),
             Container(

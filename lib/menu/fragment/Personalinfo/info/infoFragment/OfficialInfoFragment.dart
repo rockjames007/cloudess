@@ -20,9 +20,9 @@ class officialInfoFragment extends StatelessWidget {
               ConstrainedBox(
                 constraints:new BoxConstraints
                   (
-                  maxHeight: 400.0,
+                  maxHeight: 230.0,
                   maxWidth: 350.0,
-                  minHeight: 400.0,
+                  minHeight: 230.0,
                   minWidth: 350.0,
                 ),
                 child: new DecoratedBox(
@@ -32,37 +32,40 @@ class officialInfoFragment extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Container(
+                          color: Color.fromRGBO(240, 252, 253, 1.0),
+                          child:ListTile(
+                            title:Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>
+                              [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>
+                                  [
+                                    Text("Position:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,),),
+                                    Text("java Developer",style: TextStyle(fontSize: 15.0,),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,)
+                                  ],) ,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>
+                                  [
+                                    Text("Grade:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                    Text("JME",style: TextStyle(fontSize: 15.0),)
+                                  ],) ,
+                              ],
+                            ),
+                          )
+                      ),
+                      Container(
                           color: Color.fromRGBO(224, 251, 253, 1.0),
                           child:
                           ListTile(
                             title:Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text("Reporting Manager:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                                 Text("Sundararajan Aravamudhan",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Position:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("java Developer",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Grade:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("JME",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
                           )
@@ -78,38 +81,31 @@ class officialInfoFragment extends StatelessWidget {
                           color: Color.fromRGBO(224, 251, 253, 1.0),
                           child:
                           ListTile(
-                            title:Column(
+                            title:Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                            Column(
                               children: <Widget>[
                                 Text("Past:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                                 Text("0Month(s)",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
+                            Column(
                               children: <Widget>[
                                 Text("With Xmplar:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                                 Text("0Year(s) 8Month(s)",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
+                            Column(
                               children: <Widget>[
                                 Text("Total:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
                                 Text("8Month(s)",style: TextStyle(fontSize: 15.0),)
                               ],
                             ) ,
+                           ]
                           )
-                      )
+                          )
+                      ),
                     ],
                   ),
                 ),

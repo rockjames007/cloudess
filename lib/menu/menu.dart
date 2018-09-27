@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Home/HomeFragment.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/PersonalInformation.dart';
+import 'package:xmplaressflutter/menu/fragment/lms/Lmsfragment.dart';
 void main() => runApp(menu(int ));
 class DrawerItem {
   String title;
@@ -56,6 +57,8 @@ class menuPageState extends State<menuPage> {
         return new HomeFragment();
       case 1:
         return new PersonalInformation();
+      case 2:
+        return new lms();
       default:
         return new Text("Error");
     }
