@@ -44,30 +44,28 @@ class PrimaryContact extends StatelessWidget {
                 color: Color.fromRGBO(240, 252, 253, 1.0),
                 child:
                 ListTile(
-                  title: Column(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                       children: <Widget>[
                       Text("Phone Number:", style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15.0),),
-                      Text("8792875549", style: TextStyle(fontSize: 15.0),)
-                    ],
-                  ),
+                          fontWeight: FontWeight.bold, fontSize: 10.0),),
+                      Text("8792875549", style: TextStyle(fontSize: 10.0),)
+                         ],
+                         ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                      Text("Email ID:", style: TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 10.0),),
+                      Text("dipujamesefcawefw gagfsg gsdfgsdfg s7@gmail.com", style: TextStyle(fontSize: 10.0),)
+                      ] ,
+                      ),],
+                    ),
                 )
             ),
-            Container(
-                color: Color.fromRGBO(224, 251, 253, 1.0),
-                child:
-                ListTile(
-                  title: Column(
-                    children: <Widget>[
-                      Text("Email:", style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15.0),),
-                      Text("dipujames7@gmail.com",
-                        style: TextStyle(fontSize: 15.0),),
-                    ],
-                  ),
-                )
-            ),
-
           ],
         ),
       ),

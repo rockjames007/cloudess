@@ -60,9 +60,9 @@ class _ContactInfoState extends State<ContactInfoFragment>
              ConstrainedBox(
              constraints: new BoxConstraints
              (
-              maxHeight: 250.0,
+              maxHeight: 200.0,
               maxWidth: 350.0,
-              minHeight: 250.0,
+              minHeight: 200.0,
               minWidth: 350.0,
             ),
              child: _children[_currentIndex],

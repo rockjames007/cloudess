@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/PersonalInfoFragment.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/OfficialInfoFragment.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/PositionalDetailfragment.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/ContactInfofragment.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/TrainingDetailsFragment.dart';
@@ -17,9 +16,8 @@ final List<Widget> _children = [PlaceholderWidget(0),
 PlaceholderWidget(1),
 PlaceholderWidget(2),
 PlaceholderWidget(3),
-PlaceholderWidget(4),
 ];
-final List<double> _size = [290.0,290.0,510.0,350.0,450.0];
+final List<double> _size = [500.0,510.0,290.0,450.0];
   @override
     Widget build(BuildContext context) {
     return new SingleChildScrollView(
@@ -100,11 +98,7 @@ final List<double> _size = [290.0,290.0,510.0,350.0,450.0];
                               icon: new Icon(Icons.person_pin),
                               title: new Text('Personal Info', textScaleFactor: 0.7,),
                             ),
-                            BottomNavigationBarItem
-                              (
-                              icon: new Icon(Icons.assistant),
-                              title: new Text('Official Info', textScaleFactor: 0.7,),
-                            ),
+
                             BottomNavigationBarItem
                               (
                                 icon: Icon(Icons.adjust),
@@ -158,12 +152,10 @@ class PlaceholderWidget extends StatelessWidget {
       case 0:
         return new PersonalInfoFragment();
       case 1:
-        return new officialInfoFragment();
-      case 2:
         return new positionalInfoFragment();
-      case 3:
+      case 2:
         return new ContactInfoFragment();
-      case 4:
+      case 3:
         return new TrainingDetailsFragment();
       default:
         return new Text("Error");
