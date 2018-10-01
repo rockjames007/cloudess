@@ -17,7 +17,7 @@ PlaceholderWidget(1),
 PlaceholderWidget(2),
 PlaceholderWidget(3),
 ];
-final List<double> _size = [500.0,510.0,290.0,450.0];
+final List<double> _size = [500.0,510.0,400.0,450.0];
   @override
     Widget build(BuildContext context) {
     return new SingleChildScrollView(

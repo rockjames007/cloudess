@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/contact/PrimaryContact.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/contact/SecondayContact.dart';
 import 'package:flutter/services.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditPrimaryContactDetails.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditSecondaryContactDetails.dart';
 void main() => runApp(ContactInfoFragment());
 class ContactInfoFragment extends StatefulWidget {
   @override
@@ -11,8 +11,6 @@ class ContactInfoFragment extends StatefulWidget {
 }
 class _ContactInfoState extends State<ContactInfoFragment>
 {
-  int _currentIndex = 0;
-  final List<Widget> _children = [PlaceholderWidget(0),PlaceholderWidget(1)];
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -25,73 +23,144 @@ class _ContactInfoState extends State<ContactInfoFragment>
                   color: Colors.blue.shade100,
                 ),
                 child:  ListTile(
+                  dense: true,
                   title:Text('Contact Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
 
                 ),
               ),
-               Row(
-                 children: <Widget>[
-                   new InkWell(
-                     onTap:(){ HapticFeedback.vibrate();onTabTapped(_currentIndex=0);},
-                   child:Card(
-                     color: Color.fromRGBO(195, 250, 222,1.0),
-                     elevation: 250.0,
-                     child: Container(
-                       height: 25.0,
-                       width: 172.0,
-                       child: Text("Primary",textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
-                     ),
-                   ),
-                   ),
-                   new InkWell(
-                     onTap:(){ HapticFeedback.vibrate(); onTabTapped(_currentIndex=1);},
-                     child:
-                   Card(
-                       color: Color.fromRGBO(250, 211, 195,1.0),
-                       child: Container(
-                         height: 25.0,
-                         width: 172.0,
-                         child: Text("Secondary",textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
-                       )
-                   )
-                   ),
-                 ],
-               ) ,
-             ConstrainedBox(
-             constraints: new BoxConstraints
-             (
-              maxHeight: 200.0,
-              maxWidth: 350.0,
-              minHeight: 200.0,
-              minWidth: 350.0,
-            ),
-             child: _children[_currentIndex],
-             ),
+              SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Card(
+                      child: Container(
+                        child:Column(
+                          children: <Widget>[
+                            ListTile(
+                              dense: true,
+                              title: Column(
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text("Primary Contact Details:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
+                                      InkWell(child: Icon(Icons.edit), onTap:(){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});})
+                                    ],
+                                  ),
+                                ],
+                              ),
+
+                            ),
+                            Container(
+                                color: Color.fromRGBO(224, 251, 253, 1.0),
+                                child:
+                                ListTile(
+                                  title: Column(
+                                    crossAxisAlignment:CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Address: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                                            TextSpan(text:"#206, sanjeevini desai, channasandra main road, hope farm circle, whitefield bengaluru, KA 560066 India",style: TextStyle(color: Colors.black)),
+                                          ]
+                                          )),
+                                      Divider(),
+                                      RichText(
+                                          textAlign: TextAlign.left,
+
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                                            TextSpan(text:"8792875549",style: TextStyle(color: Colors.black)),
+                                          ]
+                                          )),
+                                      Divider(),
+                                      RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Email: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,)),
+                                            TextSpan(text:"dipujames7@gmail.com",style: TextStyle(color: Colors.black)),
+                                          ]
+                                          )),
+                                    ],
+                                  ),
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      child: Container(
+                        child:Column(
+                          children: <Widget>[
+                            ListTile(
+                              dense: true,
+                              title: Column(
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text("Secondary Contact Details:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
+                                      InkWell(child: Icon(Icons.edit),onTap:(){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});})
+                                    ],
+                                  ),
+                                ],
+                              ),
+
+                            ),
+                            Container(
+                                color: Color.fromRGBO(240, 252, 253, 1.0),
+                                child:
+                                ListTile(
+                                  title: Column(
+                                    crossAxisAlignment:CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Address: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                                            TextSpan(text:"#206, sanjeevini desai, channasandra main road, hope farm circle, whitefield bengaluru, KA 560066 India",style: TextStyle(color: Colors.black)),
+                                          ]
+                                          )),
+                                      Divider(),
+                                      RichText(
+                                          textAlign: TextAlign.left,
+
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                                            TextSpan(text:"8792875549",style: TextStyle(color: Colors.black)),
+                                          ]
+                                          )),
+                                      Divider(),
+                                      RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Email: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,)),
+                                            TextSpan(text:"dipujames7@gmail.com",style: TextStyle(color: Colors.black)),
+                                          ]
+                                          )),
+                                    ],
+                                  ),
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         )
 
     );
   }
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-}
-class PlaceholderWidget extends StatelessWidget {
-  int _selectedDrawerIndex;
-  PlaceholderWidget(int pos) {
-    _selectedDrawerIndex=pos;
-  }
-  @override
-  Widget build(BuildContext context) {
 
-    switch (_selectedDrawerIndex) {
-      case 0:
-        return new PrimaryContact();
-      case 1:
-        return new SecondaryContact();
-    }
-  }
 }

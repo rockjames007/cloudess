@@ -16,6 +16,7 @@ class TrainingDetailsFragment extends StatelessWidget {
                 ),
                 child:  ListTile(
                   title:Text('Training Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                  dense: true,
                   trailing: FloatingActionButton(onPressed:(){showDialog(context: context,builder: (BuildContext context){
                     HapticFeedback.vibrate();
                     return AddTrainingDetails();
