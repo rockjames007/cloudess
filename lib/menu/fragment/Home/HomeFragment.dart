@@ -57,15 +57,15 @@ class HomeFragment extends StatelessWidget {
                  (
                    constraints:new BoxConstraints
                      (
-                     maxHeight: 450.0,
+                     maxHeight: 380.0,
                      maxWidth: double.infinity,
-                     minHeight: 450.0,
+                     minHeight: 380.0,
                      minWidth: double.infinity
                      ),
                  child: new DecoratedBox(
                    decoration: new BoxDecoration
-                     ( 
-                       color: Colors.white24,
+                     (
+                     color: Color.fromRGBO(194, 204, 207, 0.7),
                       border: new Border.all(color: Color.fromRGBO(13, 80, 121 , 1.0),width: 5.0),
                      ),
                    child: new Column(
@@ -73,89 +73,127 @@ class HomeFragment extends StatelessWidget {
                        new Column(
                          children: <Widget>
                          [new Container(
-                               height: 40.0,
+                               color:Color.fromRGBO(13, 80, 121 , 0.9),
                              child:new ListTile(
-                                 title: Text("Dash Board",style: TextStyle(fontSize: 20.0,color: Colors.blueAccent,),),
-                                 leading: Icon(Icons.dashboard),
+                                 dense: true,
+                                 title:Row(children: <Widget>[
+                                   Icon(Icons.dashboard,color: Colors.white,),
+                                 Text("Dash Board",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: Colors.white)),
+
+                                  ],
+                                 )
                                 )
                            ),
-                           new Divider(color: Color.fromRGBO(13, 80, 121 , 1.0),indent: 1.0,),
                            new ListTile(
-                             title: new Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                               children: <Widget>[
-                             new InkWell(
-                             onTap:(){Navigator.push(
-                           context,
-                           MaterialPageRoute(builder: (context) => menu(1)) ,
-                           );},
-                             child: new Card(
-                                child: new Column(
-                                    children: <Widget>[
-                                      Icon(Icons.person,size: 150.0,color:Color.fromRGBO(62, 9, 182, 1.0)),
-                                      Text("Personal",style: TextStyle(fontWeight: FontWeight.bold))
-                                    ]
-                                )
-                             )
+                             title:new InkWell(
+                               onTap:(){Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) => menu(2)) ,
+                               );},
+                               child: new Card(
+                                   child: new Column(
+                                       children: <Widget>[
+                                         Row(children: <Widget>[
+                                            Icon(Icons.perm_contact_calendar,color:Color.fromRGBO(199, 0, 57, 1.0),size: 30.0),
+                                            Text("LMS",style: TextStyle(fontWeight: FontWeight.bold)),
+                                           ],
+                                           ),
+                                         Table(
+                                           border: TableBorder.all(width: 1.0,color: Color.fromRGBO(13, 80, 121 , 0.7)),
+                                           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                           children:<TableRow>[
+                                              TableRow(
+                                                 children: <Widget>[
+                                                   Text(' '),
+                                                   Text('Opening Balance',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                   Text('Leave Accrued',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                   Text('Leave Taken',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                   Text('Leave Applied',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                   Text('Closing Balance',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                 ],
+                                                 ),
+                                              TableRow(
+                                                children: <Widget>[
+                                                  Text('Earned Leave',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                  Text('2',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('10.5',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('2',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('0.0',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('10.5',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                ],
+                                              ),
+                                              TableRow(
+                                                children: <Widget>[
+                                                  Text('Sick Leave',style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                                  Text('6',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('0',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('1',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                  Text('0.0',style: TextStyle(fontSize:15.0),textAlign: TextAlign.center,),
+                                                  Text('5',style: TextStyle(fontSize: 15.0),textAlign: TextAlign.center,),
+                                                ],
+                                              ),
+                                             ]
+                                         )
+
+                                       ]
+                                   )
+                               )
                                ,
                              ),
-                           new InkWell(
-                                 onTap:(){Navigator.push(
-                                context,
-                               MaterialPageRoute(builder: (context)  => menu(2) ),
-                                );},
+                           ),
+                           new ListTile(
+                             title:new InkWell(
+                                   onTap:(){Navigator.push(
+                                     context,
+                                     MaterialPageRoute(builder: (context) => menu(1)) ,
+                                   );},
+                                   child: new Card(
+                                       child: new Row(
+                                           children: <Widget>[
+                                             Icon(Icons.person,size: 50.0,color:Color.fromRGBO(62, 9, 182, 1.0)),
+                                             Text("Personal Info",style: TextStyle(fontWeight: FontWeight.bold))
+                                           ]
+                                       )
+                                   )
+                                   ,
+                                 ),
+                           ),
+                           new ListTile(
+                             title:new InkWell(
+                               onTap:(){Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) => menu(3)) ,
+                               );},
                                child: new Card(
-                               child:new Column(
-                                     children: <Widget>[
-                                       Icon(Icons.perm_contact_calendar,color:Color.fromRGBO(199, 0, 57, 1.0),size: 150.0),
-                                       Text("LMS",style: TextStyle(fontWeight: FontWeight.bold))
-                                     ]
-                                  )
-                                 )
-                                )
-                               ],
-
+                                   child: new Row(
+                                       children: <Widget>[
+                                         Icon(Icons.timeline,size: 50.0,color:Color.fromRGBO(8, 165, 46, 1.0)),
+                                         Text("Time Sheet",style: TextStyle(fontWeight: FontWeight.bold))
+                                       ]
+                                   )
+                               )
+                               ,
                              ),
                            ),
                            new ListTile(
-                             title: new Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                               children: <Widget>[
-                                 new InkWell(
-                                   onTap:(){Navigator.push(
-                                     context,
-                                     MaterialPageRoute(builder: (context) => menu(3)),
-                                   );},
-                                   child: new Card(
-                                     child: new Column(
-                                         children: <Widget>[
-                                           Icon(Icons.timeline,size: 150.0,color:Color.fromRGBO(8, 165, 46, 1.0)),
-                                           Text("Time Sheet",style: TextStyle(fontWeight: FontWeight.bold))
-                                         ]
-                                     )
-                                       ,
-                                   ),
-                                 ),
-                               new InkWell(
-                                  onTap:(){Navigator.push(
-                                   context,
-                                    MaterialPageRoute(builder: (context) => menu(4)),
-                                   );},
-                                    child: new Card(
-                                     child:new Column(
-                                         children: <Widget>[
-                                           Icon(Icons.timer,color:Colors.deepOrange,size: 150.0),
-                                           Text("EOD Report",style: TextStyle(fontWeight: FontWeight.bold))
-                                         ]
-                                     )
-                                 )
+                             title:new InkWell(
+                               onTap:(){Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) => menu(3)) ,
+                               );},
+                               child: new Card(
+                                   child: new Row(
+                                       children: <Widget>[
+                                         Icon(Icons.timer,color:Colors.deepOrange,size: 50.0),
+                                         Text("Time Sheet Report",style: TextStyle(fontWeight: FontWeight.bold))
+                                       ]
+                                   )
                                )
-                               ],
-
+                               ,
                              ),
-                           )
+                           ),
                          ],
-                       )     
+                       )
                    ],
                    ),
 

@@ -34,7 +34,7 @@ class menuPage  extends StatefulWidget
   new DrawerItem(" PERSONAL", Icons.person),
   new DrawerItem(" LMS", Icons.perm_contact_calendar),
   new DrawerItem(" TIME SHEET", Icons.timeline),
-  new DrawerItem(" EOD REPORT", Icons.timer),
+  new DrawerItem(" TIME SHEET REPORT", Icons.timer),
 ];
 menuPage(int _selectedDrawerIndex)
 {
@@ -76,13 +76,11 @@ class menuPageState extends State<menuPage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Container(
-        child: Row(
-            children: <Widget>[
-              Icon(widget.drawerItems[_selectedDrawerIndex].icon),
-              Text(widget.drawerItems[_selectedDrawerIndex].title)
-          ],
-
-        ),
+          child:Align(
+              alignment: Alignment(-0.3,0.0),
+              child:
+              Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic),)
+          ),
         ),
         backgroundColor: Color.fromRGBO(13, 80, 121 , 1.0),
       ),
@@ -133,7 +131,7 @@ class menuPageState extends State<menuPage> {
               new Divider(),
               new ListTile(
                 leading: new Icon(Icons.timer),
-                title: new Text('EOD REPORT'),
+                title: new Text('TIME SHEET REPORT'),
                 onTap: () => _onSelectItem(4),
                 selected: 4== _selectedDrawerIndex,
               ),

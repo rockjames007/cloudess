@@ -6,7 +6,7 @@ class lms extends StatelessWidget {
     return
       Scaffold(
         floatingActionButton: FloatingActionButton(onPressed: null,child: Icon(Icons.add),),
-        backgroundColor:Color.fromRGBO(13, 80, 121 , 1.0),
+        backgroundColor:Color.fromRGBO(194, 204, 207, 0.7),
         body:new Container(
           child: new SingleChildScrollView(
             child:Column(
@@ -16,84 +16,61 @@ class lms extends StatelessWidget {
 
                   child: Column(
                     children: <Widget>[
-                      Card(
-                        child: Container(
-                          child:Column(
-                            children: <Widget>[
-                              ListTile(
-                                title: Column(
-                                  children: <Widget>[
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Relationship Type:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-                                            Text("Father"),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            FloatingActionButton(onPressed: null, child: Icon(Icons.edit), mini: true, ),
-                                            FloatingActionButton(onPressed: null, child: Icon(Icons.delete), mini: true, ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                      new Card(
+                          child: new Column(
+                              children: <Widget>[
+                                 ListTile(
+                                   title: Text("Balance",style: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                   dense: true,
+                                 ),
+                                Table(
+                                    border: TableBorder.all(width: 1.0,color: Color.fromRGBO(13, 80, 121 , 0.7)),
+                                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                    children:<TableRow>[
+                                      TableRow(
+                                        children: <Widget>[
+                                          Text(' '),
+                                          Text('Opening Balance',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                          Text('Leave Accrued',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                          Text('Leave Taken',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                          Text('Leave Applied',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                          Text('Closing Balance',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                        ],
+                                      ),
+                                      TableRow(
+                                        children: <Widget>[
+                                          Text('Earned Leave',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                          Text('2',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('10.5',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('2',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('0.0',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('10.5',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                        ],
+                                      ),
+                                      TableRow(
+                                        children: <Widget>[
+                                          Text('Sick Leave',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                                          Text('6',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('0',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('1',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                          Text('0.0',style: TextStyle(fontSize:20.0),textAlign: TextAlign.center,),
+                                          Text('5',style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                                        ],
+                                      ),
+                                    ]
+                                )
 
-                              ),
-                              Container(
-                                  color: Color.fromRGBO(255, 237, 232, 1.0),
-                                  child:
-                                  ListTile(
-                                    title: Column(
-                                      children: <Widget>[
-                                        Text("Name:", style: TextStyle(
-                                            fontWeight: FontWeight.bold, fontSize: 10.0), ),
-                                        Text(
-                                          "Saji james",
-                                          style: TextStyle(fontSize: 10.0),
-                                          textAlign: TextAlign.center, ),
-                                        Divider(),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            Column(
-                                              children: <Widget>[
-                                                Text("Gender:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                                Text("Male", style: TextStyle(fontSize: 10.0))
-                                              ],
-                                            ),
-                                            Column(
-                                              children: <Widget>[
-                                                Text("DOB:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                                Text("05/06/1960", style: TextStyle(fontSize: 10.0))
-                                              ],
-                                            ),
-                                            Column(
-                                              children: <Widget>[
-                                                Text("Dependent:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                                Text("yes", style: TextStyle(fontSize: 10.0))
-                                              ],
-                                            ),
-                                            Column(
-                                              children: <Widget>[
-                                                Text("Phone Number:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                                Text("999999999", style: TextStyle(fontSize: 10.0))
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                              ),
-                            ],
-                          ),
-                        ),
+                              ]
+                          )
                       ),
+                      Card(
+                        child:new Column(
+                          children: <Widget>[
+                            ListTile(
+                            )
+                          ],
+                        )
+                      )
                     ],
                   ),
                 )
