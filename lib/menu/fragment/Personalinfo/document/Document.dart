@@ -15,6 +15,7 @@ class Document extends StatelessWidget {
                 color: Colors.blue.shade100,
               ),
               child:  ListTile(
+                dense: true,
                 title:Text('Document',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
               ),
             ),
@@ -32,10 +33,20 @@ class Document extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Column(
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Text("Document Type:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-                                        Text("Aadhar Card", style: TextStyle(fontSize: 10.5),),
+                                        Container(
+                                          height: 30.0,
+                                          width: 30.0,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(width: 1.0),
+                                          ),
+                                          child:RichText(
+                                            textAlign: TextAlign.center,
+                                            text:TextSpan(text:"1",style: TextStyle(color: Colors.black,fontSize:25.0 )),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                     Row(
@@ -55,40 +66,57 @@ class Document extends StatelessWidget {
                               child:
                               ListTile(
                                 title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Row(children: <Widget>[
-                                      Text("Unique Number:", style: TextStyle(
-                                          fontWeight: FontWeight.bold, fontSize: 10.0), ),
-                                      Text(
-                                        "1231313131231313",
-                                        style: TextStyle(fontSize: 10.0),
-                                        textAlign: TextAlign.center, ),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Document Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"Aadhar Card",style: TextStyle(color: Colors.black,fontSize: 10.0)),
                                       ]
+                                      ),
                                     ),
                                     Divider(),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Country Issued:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("India", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Issue Date:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("01/08/2014", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Expiry Date:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("05/06/2018", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        )
-                                      ],
-                                    )
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Unique Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"1231313131231313",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Country Issued: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"India",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Issue Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Expiry Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )

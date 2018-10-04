@@ -3,100 +3,110 @@ void main()=>runApp(BankDetails());
 class BankDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor:Color.fromRGBO(13, 80, 121 , 1.0),
-      body:new Container(
+    return
+      Scaffold(
+        backgroundColor:Color.fromRGBO(13, 80, 121 , 1.0),
+        body:new Container(
           child: new SingleChildScrollView(
-          child:Column(
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blue.shade100,
-              ),
-              child:  ListTile(
-                title:Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: <Widget>[Text('Bank Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
-                Row(
-                  children: <Widget>[
-                    FloatingActionButton(onPressed: null,mini: true,child: Icon(Icons.edit),),
-                    FloatingActionButton(onPressed: null,mini: true,child: Icon(Icons.delete),),
-                  ],),
-                  ],
-                ),
-              ),
-            ),
-            SingleChildScrollView(
-
-              child: ConstrainedBox(
-                constraints:new BoxConstraints
-                  (
-                  maxHeight: 340.0,
-                  maxWidth: 350.0,
-                  minHeight: 340.0,
-                  minWidth: 350.0,
-                ),
-                child: new DecoratedBox(
-                  decoration: new BoxDecoration
-                    (
+            child:Column(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue.shade100,
                   ),
+                  child:  ListTile(
+                    dense: true,
+                    title:Text('Bank Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                  ),
+                ),
+                SingleChildScrollView(
+
                   child: Column(
                     children: <Widget>[
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Name On Account:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("DIPU S JAMES",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Bank Name:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("yes bank",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("Account Number:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("094949848494944884",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
-                      ),
-                      Container(
-                          color: Color.fromRGBO(240, 252, 253, 1.0),
-                          child:
-                          ListTile(
-                            title:Column(
-                              children: <Widget>[
-                                Text("IFS Code:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                Text("YRES000454",style: TextStyle(fontSize: 15.0),)
-                              ],
-                            ) ,
-                          )
+                      Card(
+                        child: Container(
+                          child:Column(
+                            children: <Widget>[
+                              ListTile(
+                                dense: true,
+                                title: Column(
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            FloatingActionButton(onPressed: null, child: Icon(Icons.edit), mini: true, ),
+                                            FloatingActionButton(onPressed: null, child: Icon(Icons.delete), mini: true, ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                              ),
+                              Container(
+                                  color: Color.fromRGBO(255, 237, 232, 1.0),
+                                  child:
+                                  ListTile(
+                                    title: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Name On Account: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                            TextSpan(text:"Dipu s James",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Bank Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                            TextSpan(text:"yes bank",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Account Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                            TextSpan(text:"094568461362161",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"IFS Code: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                            TextSpan(text:"YOLO122313",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ),
+                )
+              ],
             ),
-      ],
+          ),
         ),
-      ),
-      ),
-    );
+      );
   }
 }

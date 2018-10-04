@@ -16,6 +16,7 @@ class Family extends StatelessWidget {
                 color: Colors.blue.shade100,
               ),
               child:  ListTile(
+                dense: true,
                 title:Text('Family Member',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
               ),
             ),
@@ -28,16 +29,22 @@ class Family extends StatelessWidget {
                       child:Column(
                         children: <Widget>[
                           ListTile(
+                            dense: true,
                             title: Column(
                               children: <Widget>[
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Row(
-                                      children: <Widget>[
-                                        Text("Relationship Type:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-                                        Text("Father"),
-                                      ],
+                                    Container(
+                                      height: 30.0,
+                                      width: 30.0,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(width: 1.0),
+                                      ),
+                                      child:RichText(
+                                        textAlign: TextAlign.center,
+                                        text:TextSpan(text:"1",style: TextStyle(color: Colors.black,fontSize:25.0 )),
+                                      ),
                                     ),
                                     Row(
                                       children: <Widget>[
@@ -56,47 +63,66 @@ class Family extends StatelessWidget {
                               child:
                               ListTile(
                                 title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Row(
-                                      children: <Widget>[
-                                        Text("Name:", style: TextStyle(
-                                            fontWeight: FontWeight.bold, fontSize: 15.0), ),
-                                        Text(
-                                          "Saji james",
-                                          style: TextStyle(fontSize: 15.0),
-                                          textAlign: TextAlign.center, ),
-                                      ],
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Relationship Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"Father",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
                                     ),
-
                                     Divider(),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Gender:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("Male", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("DOB:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("05/06/1960", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Dependent:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("yes", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Phone Number:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("999999999", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        )
-                                      ],
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"Saji james",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Gender: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"Male",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Date Of Birth ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"10/02/1975",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Dependent: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"No",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                        TextSpan(text:"999999999",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                      ]
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -89,7 +89,8 @@ class Login extends StatelessWidget
                            splashColor: Colors.blue,
                            textColor: Colors.white,
                            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                           onPressed: () {runApp(menu(0));},
+                           onPressed: () {Route route = MaterialPageRoute(builder: (context) => menu(0));
+                           Navigator.pushReplacement(context, route);},
                          ),
                        )
                      ]

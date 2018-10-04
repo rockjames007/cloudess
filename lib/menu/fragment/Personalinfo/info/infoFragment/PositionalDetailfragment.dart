@@ -22,9 +22,9 @@ class positionalInfoFragment extends StatelessWidget {
             ConstrainedBox(
               constraints: new BoxConstraints
                 (
-                maxHeight: 450.0,
+                maxHeight: 310.0,
                 maxWidth: 360.0,
-                minHeight: 450.0,
+                minHeight: 310.0,
                 minWidth: 360.0,
               ),
               child: new DecoratedBox(
@@ -42,19 +42,19 @@ class positionalInfoFragment extends StatelessWidget {
                               child:ListTile(
                                 dense: true,
                                 title: Column(
-                                    crossAxisAlignment:CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                RichText(
-                                textAlign: TextAlign.left,
-                                    text: TextSpan(children: <TextSpan>
-                                    [
-                                      TextSpan(text:"Organization: ",style: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold)),
-                                      TextSpan(text:"Xmplar Management Solutions Private Limited",style: TextStyle(color: Colors.black)),
-                                    ]
+                                  crossAxisAlignment:CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(children: <TextSpan>
+                                      [
+                                        TextSpan(text:"Organization: ",style: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold)),
+                                        TextSpan(text:"Xmplar Management Solutions Private Limited",style: TextStyle(color: Colors.black)),
+                                      ]
+                                      ),
                                     ),
+                                  ],
                                 ),
-                                ],
-                              ),
                               ),
                             ),
                             Container(

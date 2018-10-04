@@ -14,6 +14,7 @@ class FixedAsset extends StatelessWidget {
                 color: Colors.blue.shade100,
               ),
               child:  ListTile(
+                dense: true,
                 title:Text('Fixed Asset',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
               ),
             ),
@@ -26,20 +27,21 @@ class FixedAsset extends StatelessWidget {
                       child:Column(
                         children: <Widget>[
                           ListTile(
+                            dense:true,
                             title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                   Row(
-                                  children: <Widget>[
-                                        Text("Fixed Asset ID:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-                                        Text("10023"),
-                                          ],
-                                       ),
-                                        Text("Unassigned", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12.0, color: Colors.red ),)
-                                      ],
-                                    ),
+                                Container(
+                                  height: 30.0,
+                                  width: 30.0,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(width: 1.0),
+                                  ),
+                                  child:RichText(
+                                    textAlign: TextAlign.center,
+                                    text:TextSpan(text:"1",style: TextStyle(color: Colors.black,fontSize:25.0 )),
+                                  ),
+                                ),
                               ],
                             ),
 
@@ -49,30 +51,52 @@ class FixedAsset extends StatelessWidget {
                               child:
                               ListTile(
                                 title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Fixed Asset Name:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("Lenovo C40-30", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("From Date:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("01/08/2014", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text("Thru Date:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                                            Text("05/06/2018", style: TextStyle(fontSize: 10.0))
-                                          ],
-                                        )
-                                      ],
-                                    )
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(
+                                          children:<TextSpan>[TextSpan(text:"Fixed Asset ID:",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                          TextSpan(text:"10023",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(
+                                          children:<TextSpan>[TextSpan(text:"Fixed Asset Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                          TextSpan(text:"Lenovo C40-30",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(
+                                          children:<TextSpan>[TextSpan(text:"From Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                          TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(
+                                          children:<TextSpan>[TextSpan(text:"Thru Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                          TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          ]
+                                      ),
+                                    ),
+                                    Divider(),
+                                    RichText(
+                                      textAlign: TextAlign.left,
+                                      text: TextSpan(
+                                          children:<TextSpan>[TextSpan(text:"Status:",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                                          TextSpan(text:"Unassigned",style: TextStyle(color: Colors.red,fontSize: 10.0)),
+                                          ]
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )

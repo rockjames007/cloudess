@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:xmplaressflutter/menu/fragment/Home/HomeFragment.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/PersonalInformation.dart';
 import 'package:xmplaressflutter/menu/fragment/lms/Lmsfragment.dart';
+import 'package:xmplaressflutter/login/loginpage.dart';
 void main() => runApp(menu(int ));
 class DrawerItem {
   String title;
@@ -34,7 +35,7 @@ class menuPage  extends StatefulWidget
   new DrawerItem(" PERSONAL", Icons.person),
   new DrawerItem(" LMS", Icons.perm_contact_calendar),
   new DrawerItem(" TIME SHEET", Icons.timeline),
-  new DrawerItem(" TIME SHEET REPORT", Icons.timer),
+  new DrawerItem(" PAY STATEMENT", Icons.payment),
 ];
 menuPage(int _selectedDrawerIndex)
 {
@@ -59,6 +60,10 @@ class menuPageState extends State<menuPage> {
         return new PersonalInformation();
       case 2:
         return new lms();
+      case 3:
+        return new Text("Error");
+      case 4:
+        return new Text("Error");
       default:
         return new Text("Error");
     }
@@ -130,10 +135,17 @@ class menuPageState extends State<menuPage> {
               ),
               new Divider(),
               new ListTile(
-                leading: new Icon(Icons.timer),
-                title: new Text('TIME SHEET REPORT'),
+                leading: new Icon(Icons.payment),
+                title: new Text('PAY STATEMENT'),
                 onTap: () => _onSelectItem(4),
                 selected: 4== _selectedDrawerIndex,
+              ),
+              new Divider(),
+              new ListTile(
+                leading: new Icon(Icons.exit_to_app),
+                title: new Text('LOG OUT'),
+                onTap: (){Route route = MaterialPageRoute(builder: (context) => Login());
+                Navigator.pushReplacement(context, route);}
               ),
               new Divider(),
             ],

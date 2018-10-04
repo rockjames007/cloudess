@@ -43,7 +43,7 @@ class _ContactInfoState extends State<ContactInfoFragment>
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Text("Primary Contact Details:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-                                      InkWell(child: Icon(Icons.edit), onTap:(){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});})
+                                      FloatingActionButton(onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
                                     ],
                                   ),
                                 ],
@@ -104,7 +104,7 @@ class _ContactInfoState extends State<ContactInfoFragment>
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Text("Secondary Contact Details:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-                                      InkWell(child: Icon(Icons.edit),onTap:(){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});})
+                                      FloatingActionButton(onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
                                     ],
                                   ),
                                 ],

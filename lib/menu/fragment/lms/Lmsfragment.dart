@@ -67,14 +67,57 @@ class lms extends StatelessWidget {
                         child:new Column(
                           children: <Widget>[
                             ListTile(
+                              title: Text("Waiting for Approval",style: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold,fontSize: 15.0),),
+                              dense: true,
+                            ),
+                            Card(
+                                color: Color.fromRGBO(224, 251, 253, 1.0),
+                            child:ListTile(
+                              dense: true,
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                    RichText(text: TextSpan(
+                                      children:<TextSpan>[
+                                        TextSpan(text: "Leave Type:",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black)),
+                                        TextSpan(text: "Earned Leave",style: TextStyle(color: Colors.black)),
+                                      ]
+                                    )),
+                                  Divider(),
+                                    RichText(text: TextSpan(
+                                        children:<TextSpan>[
+                                          TextSpan(text: "Reporting Manager:",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black)),
+                                          TextSpan(text: "Sundararajan Aravamudhan",style: TextStyle(color: Colors.black)),
+                                        ]
+                                    )),
+                                    Divider(),
+                                    RichText(text: TextSpan(
+                                        children:<TextSpan>[
+                                          TextSpan(text: "Duration:",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black)),
+                                          TextSpan(text: "22/10/2018",style: TextStyle(color: Colors.black)),
+                                          TextSpan(text: "-",style: TextStyle(color: Colors.black)),
+                                          TextSpan(text: " 22/10/2018",style: TextStyle(color: Colors.black)),
+                                          TextSpan(text: "(1)",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black)),
+                                        ]
+                                    )),
+                                    Divider(),
+                                    RichText(text: TextSpan(
+                                        children:<TextSpan>[
+                                          TextSpan(text: "Reason:",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black)),
+                                          TextSpan(text: "Going For vacation",style: TextStyle(color: Colors.black)),
+                                        ]
+                                    )),
+                              ],
+                             ),
                             )
-                          ],
-                        )
-                      )
-                    ],
-                  ),
-                )
-              ],
+                            )
+                           ],
+                        ),
+                    ),
+               ],
+              ),
+            ),
+               ],
             ),
           ),
         ),

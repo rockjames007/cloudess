@@ -26,9 +26,9 @@ class PersonalInfoFragment extends StatelessWidget {
              ConstrainedBox(
                constraints:new BoxConstraints
                  (
-                 maxHeight: 450.0,
+                 maxHeight: 500.0,
                  maxWidth: 350.0,
-                 minHeight: 450.0,
+                 minHeight: 500.0,
                  minWidth: 350.0,
                ),
                  child: new DecoratedBox(
@@ -39,203 +39,215 @@ class PersonalInfoFragment extends StatelessWidget {
                      children: <Widget>[
                        Container(
                          color: Color.fromRGBO(224, 251, 253, 1.0),
-                           height: 33.0,
-                      child:ListTile(
-                        dense: true,
-                         title:Row(
-                           crossAxisAlignment: CrossAxisAlignment.stretch,
-                           children: <Widget>
-                           [
-                             Text("Gender:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                             Text(" Male",style: TextStyle(fontSize: 15.0),)
-                             ,
-                          ],
+                         height: 33.0,
+                         child:
+                         ListTile(
+                           dense: true,
+                           title: Row(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             children: <Widget>
+                             [
+                               RichText(
+                                   text: TextSpan
+                                         (children:
+                                         <TextSpan>[
+                                          TextSpan(text:"Gender: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                          TextSpan(text:"Male",style: TextStyle(fontSize: 15.0,color: Colors.black), )
+                                         ]
+                                         )
+                                      ) ,
+                             ],
+                           ),
                          ),
-                       )
                        ),
                        Container(
-                           color: Color.fromRGBO(240, 252, 253, 1.0),
-                           height: 33.0,
-                           child:ListTile(
-                             dense: true,
-                             title:Row(
-                               crossAxisAlignment: CrossAxisAlignment.stretch,
-                               children: <Widget>
-                               [
-                                 Text("Date Of Birth:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text(" 10/01/1997",style: TextStyle(fontSize: 15.0),)
-                                 ,
-                               ],
-                             ),
-                           )
+                         color: Color.fromRGBO(240, 252, 253, 1.0),
+                         height: 33.0,
+                         child:
+                         ListTile(
+                           dense: true,
+                           title: Row(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             children: <Widget>
+                             [
+                               RichText(text: TextSpan(children: <TextSpan>[
+                                 TextSpan(text:"Date of Birth: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                 TextSpan(text:"10 Jan, 1997",style: TextStyle(fontSize: 15.0,color: Colors.black),
+                                 )
+                               ])
+                               )
+                               ,
+                             ],
+                           ),
+                         ),
                        ),
+                       Container(
+                         color: Color.fromRGBO(224, 251, 253, 1.0),
+                         height: 33.0,
+                         child:
+                         ListTile(
+                           dense: true,
+                           title: Row(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             children: <Widget>
+                             [
+                               RichText(text: TextSpan(children: <TextSpan>[
+                                 TextSpan(text:"Blood Group: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                 TextSpan(text:"O+",style: TextStyle(fontSize: 15.0,color: Colors.black),
+                                 )
+                               ])
+                               )
+                               ,
+                             ],
+                           ),
+                         ),
+                       ),
+                       Container(
+                         color: Color.fromRGBO(240, 252, 253, 1.0),
+                         height: 33.0,
+                         child:
+                         ListTile(
+                           dense: true,
+                           title: Row(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             children: <Widget>
+                             [
+                               RichText(text: TextSpan(children: <TextSpan>[
+                                 TextSpan(text:"Mother's Name: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                 TextSpan(text:"Mrudula",style: TextStyle(fontSize: 15.0,color: Colors.black),
+                                 )
+                               ])
+                               )
+                               ,
+                             ],
+                           ),
+                         ),
+                       ),
+                       Container(
+                         color: Color.fromRGBO(224, 251, 253, 1.0),
+                         height: 33.0,
+                         child:
+                         ListTile(
+                           dense: true,
+                           title: Row(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             children: <Widget>
+                             [
+                               RichText(text: TextSpan(children: <TextSpan>[
+                                 TextSpan(text:"Marital Status: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                 TextSpan(text:"Single",style: TextStyle(fontSize: 15.0,color: Colors.black),
+                                 )
+                               ])
+                               )
+                               ,
+                             ],
+                           ),
+                         ),
+                       ),
+                       Container(
+                         color: Color.fromRGBO(240, 252, 253, 1.0),
+                         height: 33.0,
+                         child:
+                         ListTile(
+                           dense: true,
+                           title: Row(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             children: <Widget>
+                             [
+                               RichText(text: TextSpan(children: <TextSpan>[
+                                 TextSpan(text:"Employee Status: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                 TextSpan(text:"Java Developer",style: TextStyle(fontSize: 15.0,color: Colors.black),
+                                 )
+                               ])
+                               )
+                               ,
+                             ],
+                           ),
+                         ),
+                       ),
+                       Divider(),
                        Container(
                            color: Color.fromRGBO(224, 251, 253, 1.0),
-                           height: 33.0,
                            child:ListTile(
-                             dense: true,
-                             title:Row(
-                               crossAxisAlignment: CrossAxisAlignment.stretch,
-                               children: <Widget>
-                               [
-                                 Text("Blood Group:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text(" 0+",style: TextStyle(fontSize: 15.0),)
-                                 ,
-                               ],
+                             title:Column(
+                               crossAxisAlignment:CrossAxisAlignment.start,
+                               children: <Widget>[
+                                 Text("Official Info:",style: TextStyle(color: Colors.red),),
+                                 Divider(),
+                                 Column(
+                                     crossAxisAlignment:CrossAxisAlignment.start,
+                                     children: <Widget>[
+                                       RichText(
+                                         textAlign: TextAlign.start,
+                                         text: TextSpan(children: <TextSpan>
+                                         [
+                                           TextSpan(text:"Reporting Manager: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                                           TextSpan(text:"Sundararajan Aravamudhan",style: TextStyle(color: Colors.black)),
+                                         ]
+                                         ),
+                                       ),
+                                       Divider(),
+                                       RichText(
+                                           textAlign: TextAlign.start,
+                                           text: TextSpan(children: <TextSpan>[
+                                         TextSpan(text:"Position: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: Colors.black),),
+                                         TextSpan(text:"Java Developer",style: TextStyle(fontSize: 15.0,color: Colors.black),
+                                         )
+                                       ])
+                                       ),
+                                       Divider(),
+                                       RichText(
+                                         textAlign: TextAlign.left,
+                                         text: TextSpan(children: <TextSpan>
+                                         [
+                                           TextSpan(text:"Grade: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                                           TextSpan(text:"JME",style: TextStyle(color: Colors.black)),
+                                         ]
+                                         ),
+                                       ),
+                                     ]
+                                 )],
                              ),
                            )
                        ),
+                       Divider(),
                        Container(
                            color: Color.fromRGBO(240, 252, 253, 1.0),
-                           height: 33.0,
                            child:ListTile(
-                             dense: true,
-                             title:Row(
-                               crossAxisAlignment: CrossAxisAlignment.stretch,
-                               children: <Widget>
-                               [
-                                 Text("Mother's Name:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text(" Mrudula Saji",style: TextStyle(fontSize: 15.0),)
-                                 ,
-                               ],
+                             title:Column(
+                               crossAxisAlignment:CrossAxisAlignment.start,
+                               children: <Widget>[
+                                 Text("Experience:",style: TextStyle(color: Colors.red),),
+                                 Divider(),
+                                 Column(
+                                     crossAxisAlignment:CrossAxisAlignment.start,
+                                     children: <Widget>[
+                                       Row(
+                                         children: <Widget>[
+                                           Text("Past:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                           Text("0Month(s)",style: TextStyle(fontSize: 15.0),)
+                                         ],
+                                       ),
+                                       Divider(),
+                                       Row(
+                                         children: <Widget>[
+                                           Text("With Xmplar:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                           Text("0Year(s) 8Month(s)",style: TextStyle(fontSize: 15.0),)
+                                         ],
+                                       ) ,
+                                       Divider(),
+                                       Row(
+                                         children: <Widget>[
+                                           Text("Total:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
+                                           Text("8Month(s)",style: TextStyle(fontSize: 15.0),)
+                                         ],
+                                       ) ,
+                                     ]
+                                 )],
                              ),
                            )
                        ),
-                       Container(
-                           color: Color.fromRGBO(224, 251, 253, 1.0),
-                           height: 33.0,
-                           child:ListTile(
-                             dense: true,
-                             title:Row(
-                               crossAxisAlignment: CrossAxisAlignment.stretch,
-                               children: <Widget>
-                               [
-                                 Text("Marital Status: ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text(" Single",style: TextStyle(fontSize: 15.0),)
-                                 ,
-                               ],
-                             ),
-                           )
-                       ),
-                       Container(
-                           color: Color.fromRGBO(240, 252, 253, 1.0),
-                           height: 33.0,
-                           child:ListTile(
-                             dense: true,
-                             title:Row(
-                               crossAxisAlignment: CrossAxisAlignment.stretch,
-                               children: <Widget>
-                               [
-                                 Text("Employee Status:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                 Text(" Student",style: TextStyle(fontSize: 15.0),)
-                                 ,
-                               ],
-                             ),
-                           )
-                       ),
-                       Container(
-                                decoration: BoxDecoration(
-                                color: Colors.blue.shade100,),
-                                child:
-                                ListTile(dense: true, title:Text('Official Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17.0),), ),
-                                ),
-                             ConstrainedBox
-                               (
-                                constraints:new BoxConstraints(maxHeight: 200.0,maxWidth: 350.0,minHeight: 200.0,minWidth: 350.0, ),
-                                child: new DecoratedBox(
-                                decoration: new BoxDecoration
-                                (
-                                ),
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                      color: Color.fromRGBO(224, 251, 253, 1.0),
-                                      height: 33.0,
-                                      child:ListTile(
-                                        dense: true,
-                                        title:Row(
-                                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                                          children: <Widget>
-                                          [
-                                            Text("Reporting Mgr:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                            Text(" Sundararajan Aravamudhan",style: TextStyle(fontSize: 15.0),)
-                                            ,
-                                          ],
-                                        ),
-                                      )
-                                  ),
-                                  Container(
-                                      color: Color.fromRGBO(240, 252, 253, 1.0),
-                                      height: 33.0,
-                                      child:ListTile(
-                                        dense: true,
-                                        title:Row(
-                                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                                          children: <Widget>
-                                          [
-                                            Text("Position:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                            Text(" Java Developer",style: TextStyle(fontSize: 15.0),)
-                                            ,
-                                          ],
-                                        ),
-                                      )
-                                  ),
-                                  Container(
-                                      color: Color.fromRGBO(224, 251, 253, 1.0),
-                                      height: 33.0,
-                                      child:ListTile(
-                                        dense: true,
-                                        title:Row(
-                                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                                          children: <Widget>
-                                          [
-                                            Text("Grade:	",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-                                            Text(" JME",style: TextStyle(fontSize: 15.0),)
-                                            ,
-                                          ],
-                                        ),
-                                      )
-                                  ),
-                           Container(
-    color: Color.fromRGBO(240, 252, 253, 1.0),
 
-    child:
-    ListTile(
-    title:Column(
-    crossAxisAlignment:CrossAxisAlignment.start,
-    children: <Widget>[
-    Text("Experience:",style: TextStyle(color: Colors.red),),
-    Divider(),
-    Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-    Column(
-    children: <Widget>[
-    Text("Past:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-    Text("0Month(s)",style: TextStyle(fontSize: 15.0),)
-    ],
-    ) ,
-    Column(
-    children: <Widget>[
-    Text("With Xmplar:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-    Text("0Year(s) 8Month(s)",style: TextStyle(fontSize: 15.0),)
-    ],
-    ) ,
-    Column(
-    children: <Widget>[
-    Text("Total:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),),
-    Text("8Month(s)",style: TextStyle(fontSize: 15.0),)
-    ],
-    ) ,
-    ]
-    )],
-    ),
-    )
-    ),
-                     ],
-                   ),
-                 ),
-             ),
             ],
           ),
         )

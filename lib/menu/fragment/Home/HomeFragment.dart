@@ -74,12 +74,11 @@ class HomeFragment extends StatelessWidget {
                          children: <Widget>
                          [new Container(
                                color:Color.fromRGBO(13, 80, 121 , 0.9),
-                             child:new ListTile(
+                               child:new ListTile(
                                  dense: true,
                                  title:Row(children: <Widget>[
                                    Icon(Icons.dashboard,color: Colors.white,),
-                                 Text("Dash Board",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: Colors.white)),
-
+                                   Text("Dash Board",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: Colors.white)),
                                   ],
                                  )
                                 )
@@ -184,8 +183,8 @@ class HomeFragment extends StatelessWidget {
                                child: new Card(
                                    child: new Row(
                                        children: <Widget>[
-                                         Icon(Icons.timer,color:Colors.deepOrange,size: 50.0),
-                                         Text("Time Sheet Report",style: TextStyle(fontWeight: FontWeight.bold))
+                                         Icon(Icons.payment,color:Colors.deepOrange,size: 50.0),
+                                         Text("Pay Statements",style: TextStyle(fontWeight: FontWeight.bold))
                                        ]
                                    )
                                )

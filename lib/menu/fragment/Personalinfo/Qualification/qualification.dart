@@ -15,11 +15,11 @@ class Qualification extends StatelessWidget {
           color: Colors.blue.shade100,
         ),
         child:  ListTile(
+          dense: true,
           title:Text('Qualification',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
           ),
       ),
             SingleChildScrollView(
-
               child: Column(
                 children: <Widget>[
               Card(
@@ -32,11 +32,20 @@ class Qualification extends StatelessWidget {
               Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-              Column(
+              Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-              Text("Qualification Type:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent), ),
-              Text("Secondary School Leaving Certificate", style: TextStyle(fontSize: 10.5),),
-              Text("Verified", style: TextStyle(fontSize: 10.5, color: Colors.green), ),
+                Container(
+                  height: 30.0,
+                  width: 30.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1.0),
+                  ),
+                  child:RichText(
+                    textAlign: TextAlign.center,
+                    text:TextSpan(text:"1",style: TextStyle(color: Colors.black,fontSize:25.0 )),
+                  ),
+                ),
               ],
               ),
               Row(
@@ -59,36 +68,65 @@ class Qualification extends StatelessWidget {
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-              Text("Institution/Organization:", style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 10.0), ),
-              Text(
-              "VEMANA INSTITUTE OF TECHNOLOGY",
-              style: TextStyle(fontSize: 10.0),
-              textAlign: TextAlign.center, ),
-              Divider(),
-              Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Text("Qualification/Designation:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-                    Text("B.E. computer science", style: TextStyle(fontSize: 10.0))
-                  ],
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(children: <TextSpan>
+                  [
+                    TextSpan(text:"Qualification Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                    TextSpan(text:"Secondary School Leaving Certificate",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                  ]
+                  ),
                 ),
-              Column(
-              children: <Widget>[
-              Text("From Date:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-              Text("01/08/2014", style: TextStyle(fontSize: 10.0))
-              ],
-              ),
-              Column(
-              children: <Widget>[
-              Text("Thru Date:", style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold), ),
-              Text("05/06/2018", style: TextStyle(fontSize: 10.0))
-              ],
-              )
-              ],
-              )
+                Divider(),
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(children: <TextSpan>
+                  [
+                    TextSpan(text:"Institution/Organization: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                    TextSpan(text:"VEMANA INSTITUTE OF TECHNOLOGY",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                  ]
+                  ),
+                ),
+              Divider(),
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(children: <TextSpan>
+                  [
+                    TextSpan(text:"Qualification/Designation: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                    TextSpan(text:"B.E. computer science",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                  ]
+                  ),
+                ),
+                Divider(),
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(children: <TextSpan>
+                  [
+                    TextSpan(text:"From Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                    TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                  ]
+                  ),
+                ),
+                Divider(),
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(children: <TextSpan>
+                  [
+                    TextSpan(text:"Thru Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                    TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                  ]
+                  ),
+                ),
+                Divider(),
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(children: <TextSpan>
+                  [
+                  TextSpan(text:"Status: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
+                  TextSpan(text:"Verified",style: TextStyle(color: Colors.green,fontSize: 10.0)),
+                  ]
+                ),
+                ),
               ],
               ),
               )
