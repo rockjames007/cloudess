@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/PersonalInfoFragment.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/PositionalDetailfragment.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/ContactInfofragment.dart';
-import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/TrainingDetailsFragment.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditPersonInfo.dart';
+import 'package:flutter/services.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditPrimaryContactDetails.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditSecondaryContactDetails.dart';
 void main() => runApp(info());
 class info extends StatefulWidget {
   @override
@@ -11,13 +11,7 @@ class info extends StatefulWidget {
   }
 }
 class _InfoState extends State<info>
-{  int _currentIndex = 0;
-final List<Widget> _children = [PlaceholderWidget(0),
-PlaceholderWidget(1),
-PlaceholderWidget(2),
-PlaceholderWidget(3),
-];
-final List<double> _size = [550.0,360.0,420.0,450.0];
+{
   @override
     Widget build(BuildContext context) {
     return new SingleChildScrollView(
@@ -32,7 +26,7 @@ final List<double> _size = [550.0,360.0,420.0,450.0];
                 width: double.infinity,
                 decoration: new BoxDecoration
                   (
-                  color: Color.fromRGBO(13, 80, 121 , 0.7),
+                  color: Color.fromRGBO(13, 80, 121 , 0.5),
                 ),
                 child:Column
                   (
@@ -62,103 +56,459 @@ final List<double> _size = [550.0,360.0,420.0,450.0];
                         ),
                         Text("XMS-INT-005")
                       ],
-                    ),
+                      ),
 
                   ],
                 ),
-              ),new ConstrainedBox
-                (
-                  constraints:new BoxConstraints
-                    (
-                      maxHeight: _size[_currentIndex]+60.0,
-                      maxWidth: double.infinity,
-                      minHeight: _size[_currentIndex]+60.0,
-                      minWidth: double.infinity
+              ),
+              Container(
+                  decoration: BoxDecoration(
+                  color: Colors.blue.shade100,
                   ),
-                  child: new DecoratedBox(
-
-                    decoration: new BoxDecoration
-                      (
-                      color: Color.fromRGBO(13, 80, 121 , 1.0),
-                    ),
-                    child: new Column
-                      (
-                      children: <Widget>
-                       [
-                        BottomNavigationBar
-                          (
-                          type: BottomNavigationBarType.fixed,
-                          onTap: onTabTapped, // new
-                          currentIndex: _currentIndex,
-                          fixedColor: Colors.red,
-                          items:
-                          [
-                            BottomNavigationBarItem
-                              (
-                              icon: new Icon(Icons.person_pin),
-                              title: new Text('Personal Info', textScaleFactor: 0.7,),
-                            ),
-
-                            BottomNavigationBarItem
-                              (
-                                icon: Icon(Icons.adjust),
-                                title: Text('Position Details', textScaleFactor: 0.7,)
-                            ),
-                            BottomNavigationBarItem
-                              (
-                                icon: Icon(Icons.phone),
-                                title: Text('Contact Info', textScaleFactor: 0.7,)
-                            ),
-                            BottomNavigationBarItem
-                              (
-                                icon: Icon(Icons.assignment),
-                                title: Text('Training Details', textScaleFactor: 0.7,)
-                            ),
-                          ],
-
-                        ),
-                        Container(
-                           height: _size[_currentIndex],
-                          width: double.infinity,
-                          child: Scaffold(
-                            body: _children[_currentIndex],
-                          ),
-                        )
-                        ]
-                      ),
-                   ),
+                child: Column(
+                  children: <Widget>[
+                   ListTile(
+                    dense: true,
+                    title:Text('Personal Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
+                 trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:(){showDialog(context: context,builder: (BuildContext context){HapticFeedback.vibrate();return EditPersonInfo();
+                  });}
+                  ),
                 ),
-            ]
+                Card(
+                child: Container(
+                  child:Column(
+                    children: <Widget>[
+                      Container(
+                          color: Colors.blue.shade100.withOpacity(0.5),
+                          child:
+                          ListTile(
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(children: <TextSpan>
+                                  [
+                                    TextSpan(text:"Gender: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                    TextSpan(text:"Male",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                  ]
+                                  ),
+                                ),
+                                Divider(),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(children: <TextSpan>
+                                  [
+                                    TextSpan(text:"Date of Birth: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                    TextSpan(text:"10 Jan, 1997",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                  ]
+                                  ),
+                                ),
+                                Divider(),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(children: <TextSpan>
+                                  [
+                                    TextSpan(text:"Blood Group: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                    TextSpan(text:"O +ve",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                  ]
+                                  ),
+                                ),
+                                Divider(),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(children: <TextSpan>
+                                  [
+                                    TextSpan(text:"Mother's Maiden Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                    TextSpan(text:"Mrudula",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                  ]
+                                  ),
+                                ),
+                                Divider(),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(children: <TextSpan>
+                                  [
+                                    TextSpan(text:"Marital Status: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                    TextSpan(text:"Single",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                  ]
+                                  ),
+                                ),
+                                Divider(),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(children: <TextSpan>
+                                  [
+                                    TextSpan(text:"Employee Status: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                    TextSpan(text:"Student",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                  ]
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              ]
+                ),
+              ),
+              Divider(color: Colors.black,),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade100,
+                ),
+                child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        dense: true,
+                        title:Text('Official Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
+                      ),
+                      Card(
+                        child: Container(
+                          child:Column(
+                            children: <Widget>[
+                              Container(
+                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  child:
+                                  ListTile(
+                                    dense: true,
+                                    title: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Reporting Manager: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Sundararajan Aravamudhan",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Position: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Java Developer",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Grade: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"JME",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(text: TextSpan(text:"Experience: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0))),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Past: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"0Month(s)",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"With Xmplar: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"0Year(s) 8Month(s)",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Total: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"8Month(s)",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ]
+                ),
+              ),
+              Divider(color: Colors.black,),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade100,
+                ),
+                child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        dense: true,
+                        title:Text('Positional Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
+                      ),
+                      Card(
+                        child: Container(
+                          child:Column(
+                            children: <Widget>[
+                              Container(
+                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  child:
+                                  ListTile(
+                                    dense: true,
+                                    title: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Organization: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Xmplar Management Solutions Private Limited",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Employee Position: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Java Developer",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Employee Position Date Range: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"17/01/2018",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Grade: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"JME",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Step: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Location: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Bengaluru",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Reporting Manager: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Sundararajan Aravamudhan",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Remarks: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ]
+                ),
+              ),
+              Divider(color: Colors.black,),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade100,
+                ),
+                child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        dense: true,
+                        title:Text('Contact Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
+                      ),
+                      Card(
+                        child: Container(
+                          color: Colors.blue.shade100.withOpacity(0.3),
+                          child:Column(
+                            children: <Widget>[
+                              ListTile(
+                                dense: true,
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text('Primary Contact:',style: TextStyle(fontWeight: FontWeight.bold),),
+                                          FloatingActionButton(onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
+                                        ]
+                                    ),
+                                  ],
+                                ),
+
+                              ),
+                              Container(
+                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  child:
+                                  ListTile(
+                                    title: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Address: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"#206, sanjeevini desai, channasandra main road, hope farm circle, whitefield bengaluru, KA 560066 India",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"8792875549",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Email: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"dipujames7@gmail.com",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Container(
+                          color: Colors.blue.shade100.withOpacity(0.3),
+                          child:Column(
+                            children: <Widget>[ListTile(
+                                  dense: true,
+                                  title: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Text('Secondary Contact:',style: TextStyle(fontWeight: FontWeight.bold),),
+                                            FloatingActionButton(onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
+                                          ]
+                                      ),
+                                    ],
+                                  ),
+                              ),
+
+                              Container(
+                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  child:
+                                  ListTile(
+                                    title: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Address: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"#206, sanjeevini desai, channasandra main road, hope farm circle, whitefield bengaluru, KA 560066 India",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"8792875549",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                        Divider(),
+                                        RichText(
+                                          textAlign: TextAlign.left,
+                                          text: TextSpan(children: <TextSpan>
+                                          [
+                                            TextSpan(text:"Email: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"dipujames7@gmail.com",style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                          ]
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ]
+                ),
+              ),
+       ]
              ),
           );
     }
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+
 
 }
-class PlaceholderWidget extends StatelessWidget {
-  int _selectedDrawerIndex;
 
-  PlaceholderWidget(int pos) {
-    _selectedDrawerIndex = pos;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    switch (_selectedDrawerIndex) {
-      case 0:
-        return new PersonalInfoFragment();
-      case 1:
-        return new positionalInfoFragment();
-      case 2:
-        return new ContactInfoFragment();
-      case 3:
-        return new TrainingDetailsFragment();
-      default:
-        return new Text("Error");
-    }
-  }
-}

@@ -150,7 +150,7 @@ class HomeFragment extends StatelessWidget {
                                        child: new Row(
                                            children: <Widget>[
                                              Icon(Icons.person,size: 50.0,color:Color.fromRGBO(62, 9, 182, 1.0)),
-                                             Text("Personal Info",style: TextStyle(fontWeight: FontWeight.bold))
+                                             Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold))
                                            ]
                                        )
                                    )

@@ -5,6 +5,7 @@ import 'package:xmplaressflutter/menu/fragment/Personalinfo/document/Document.da
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/bankDetails/BankDetails.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/fixedAsset/FixedAsset.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/family/Family.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/TrainingDetails/TrainingDetailsFragment.dart';
 void main() => runApp(PersonalInformation());
 class PersonalInformation extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _UserInfoState extends State<PersonalInformation>
   PlaceholderWidget(3),
   PlaceholderWidget(4),
   PlaceholderWidget(5),
+  PlaceholderWidget(6),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,32 +39,37 @@ class _UserInfoState extends State<PersonalInformation>
           BottomNavigationBarItem
             (
             icon: new Icon(Icons.info),
-            title: new Text('Basic Info', textScaleFactor: 0.7,),
+            title: new Text('Basic Info', textScaleFactor: 0.5,),
           ),
           BottomNavigationBarItem
             (
             icon: new Icon(Icons.school),
-            title: new Text('Qualification', textScaleFactor: 0.7,),
+            title: new Text('Qualification', textScaleFactor: 0.5,),
           ),
           BottomNavigationBarItem
             (
               icon: Icon(Icons.picture_as_pdf),
-              title: Text('Document', textScaleFactor: 0.7,)
+              title: Text('Document', textScaleFactor: 0.5,)
           ),
           BottomNavigationBarItem
             (
               icon: Icon(Icons.account_balance),
-              title: Text('Bank Details', textScaleFactor: 0.7,)
+              title: Text('Bank Details', textScaleFactor: 0.5,)
           ),
           BottomNavigationBarItem
             (
               icon: Icon(Icons.verified_user),
-              title: Text('Fixed Asset', textScaleFactor: 0.7,)
+              title: Text('Fixed Asset', textScaleFactor: 0.5,)
           ),
           BottomNavigationBarItem
             (
               icon: Icon(Icons.people),
-              title: Text('Family', textScaleFactor: 0.7,)
+              title: Text('Family', textScaleFactor: 0.5,)
+          ),
+          BottomNavigationBarItem
+            (
+              icon: Icon(Icons.assignment),
+              title: Text('Training Details', textScaleFactor: 0.5,)
           ),
         ],
 
@@ -96,6 +103,8 @@ class PlaceholderWidget extends StatelessWidget {
         return new FixedAsset();
       case 5:
         return new Family();
+      case 6:
+        return new TrainingDetailsFragment();
     }
     }
   }

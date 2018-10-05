@@ -16,7 +16,7 @@ class Qualification extends StatelessWidget {
         ),
         child:  ListTile(
           dense: true,
-          title:Text('Qualification',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+          title:Text('Qualification',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
           ),
       ),
             SingleChildScrollView(
@@ -24,6 +24,7 @@ class Qualification extends StatelessWidget {
                 children: <Widget>[
               Card(
               child: Container(
+                color: Colors.blue.shade100.withOpacity(0.3),
               child:Column(
               children: <Widget>[
               ListTile(
@@ -62,7 +63,7 @@ class Qualification extends StatelessWidget {
 
               ),
               Container(
-              color: Color.fromRGBO(255, 237, 232, 1.0),
+                  color: Colors.blue.shade100.withOpacity(0.5),
               child:
               ListTile(
               title: Column(
@@ -72,8 +73,8 @@ class Qualification extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(children: <TextSpan>
                   [
-                    TextSpan(text:"Qualification Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                    TextSpan(text:"Secondary School Leaving Certificate",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                    TextSpan(text:"Qualification Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                    TextSpan(text:"Secondary School Leaving Certificate",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                   ]
                   ),
                 ),
@@ -82,8 +83,8 @@ class Qualification extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(children: <TextSpan>
                   [
-                    TextSpan(text:"Institution/Organization: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                    TextSpan(text:"VEMANA INSTITUTE OF TECHNOLOGY",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                    TextSpan(text:"Institution/Organization: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                    TextSpan(text:"VEMANA INSTITUTE OF TECHNOLOGY",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                   ]
                   ),
                 ),
@@ -92,8 +93,8 @@ class Qualification extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(children: <TextSpan>
                   [
-                    TextSpan(text:"Qualification/Designation: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                    TextSpan(text:"B.E. computer science",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                    TextSpan(text:"Qualification/Designation: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                    TextSpan(text:"B.E. computer science",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                   ]
                   ),
                 ),
@@ -102,8 +103,8 @@ class Qualification extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(children: <TextSpan>
                   [
-                    TextSpan(text:"From Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                    TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                    TextSpan(text:"From Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                    TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                   ]
                   ),
                 ),
@@ -112,8 +113,8 @@ class Qualification extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(children: <TextSpan>
                   [
-                    TextSpan(text:"Thru Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                    TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                    TextSpan(text:"Thru Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                    TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                   ]
                   ),
                 ),
@@ -122,8 +123,8 @@ class Qualification extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(children: <TextSpan>
                   [
-                  TextSpan(text:"Status: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                  TextSpan(text:"Verified",style: TextStyle(color: Colors.green,fontSize: 10.0)),
+                  TextSpan(text:"Status: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                  TextSpan(text:"Verified",style: TextStyle(color: Colors.green,fontSize: 13.0)),
                   ]
                 ),
                 ),

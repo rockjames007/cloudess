@@ -16,7 +16,7 @@ class Document extends StatelessWidget {
               ),
               child:  ListTile(
                 dense: true,
-                title:Text('Document',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                title:Text('Document',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
               ),
             ),
             SingleChildScrollView(
@@ -25,6 +25,7 @@ class Document extends StatelessWidget {
                 children: <Widget>[
                   Card(
                     child: Container(
+                      color: Colors.blue.shade100.withOpacity(0.3),
                       child:Column(
                         children: <Widget>[
                           ListTile(
@@ -62,7 +63,7 @@ class Document extends StatelessWidget {
 
                           ),
                           Container(
-                              color: Color.fromRGBO(255, 237, 232, 1.0),
+                              color: Colors.blue.shade100.withOpacity(0.5),
                               child:
                               ListTile(
                                 title: Column(
@@ -72,8 +73,8 @@ class Document extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Document Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"Aadhar Card",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Document Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"Aadhar Card",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -82,8 +83,8 @@ class Document extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Unique Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"1231313131231313",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Unique Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"1231313131231313",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -92,8 +93,8 @@ class Document extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Country Issued: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"India",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Country Issued: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"India",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -102,8 +103,8 @@ class Document extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Issue Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Issue Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -112,8 +113,8 @@ class Document extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Expiry Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Expiry Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),

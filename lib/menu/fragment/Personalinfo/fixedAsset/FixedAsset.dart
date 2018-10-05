@@ -15,7 +15,7 @@ class FixedAsset extends StatelessWidget {
               ),
               child:  ListTile(
                 dense: true,
-                title:Text('Fixed Asset',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                title:Text('Fixed Asset',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
               ),
             ),
             SingleChildScrollView(
@@ -24,6 +24,7 @@ class FixedAsset extends StatelessWidget {
                 children: <Widget>[
                   Card(
                     child: Container(
+                      color: Colors.blue.shade100.withOpacity(0.3),
                       child:Column(
                         children: <Widget>[
                           ListTile(
@@ -47,7 +48,7 @@ class FixedAsset extends StatelessWidget {
 
                           ),
                           Container(
-                              color: Color.fromRGBO(255, 237, 232, 1.0),
+                              color: Colors.blue.shade100.withOpacity(0.5),
                               child:
                               ListTile(
                                 title: Column(
@@ -56,8 +57,8 @@ class FixedAsset extends StatelessWidget {
                                     RichText(
                                       textAlign: TextAlign.left,
                                       text: TextSpan(
-                                          children:<TextSpan>[TextSpan(text:"Fixed Asset ID:",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                          TextSpan(text:"10023",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          children:<TextSpan>[TextSpan(text:"Fixed Asset ID:",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                          TextSpan(text:"10023",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                       ),
                                     ),
@@ -65,8 +66,8 @@ class FixedAsset extends StatelessWidget {
                                     RichText(
                                       textAlign: TextAlign.left,
                                       text: TextSpan(
-                                          children:<TextSpan>[TextSpan(text:"Fixed Asset Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                          TextSpan(text:"Lenovo C40-30",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          children:<TextSpan>[TextSpan(text:"Fixed Asset Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                          TextSpan(text:"Lenovo C40-30",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                       ),
                                     ),
@@ -74,8 +75,8 @@ class FixedAsset extends StatelessWidget {
                                     RichText(
                                       textAlign: TextAlign.left,
                                       text: TextSpan(
-                                          children:<TextSpan>[TextSpan(text:"From Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                          TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          children:<TextSpan>[TextSpan(text:"From Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                          TextSpan(text:"01/08/2014",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                       ),
                                     ),
@@ -83,8 +84,8 @@ class FixedAsset extends StatelessWidget {
                                     RichText(
                                       textAlign: TextAlign.left,
                                       text: TextSpan(
-                                          children:<TextSpan>[TextSpan(text:"Thru Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                          TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                          children:<TextSpan>[TextSpan(text:"Thru Date: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                          TextSpan(text:"05/06/2018",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                       ),
                                     ),
@@ -92,8 +93,8 @@ class FixedAsset extends StatelessWidget {
                                     RichText(
                                       textAlign: TextAlign.left,
                                       text: TextSpan(
-                                          children:<TextSpan>[TextSpan(text:"Status:",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                          TextSpan(text:"Unassigned",style: TextStyle(color: Colors.red,fontSize: 10.0)),
+                                          children:<TextSpan>[TextSpan(text:"Status:",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                          TextSpan(text:"Unassigned",style: TextStyle(color: Colors.red,fontSize: 13.0)),
                                           ]
                                       ),
                                     ),

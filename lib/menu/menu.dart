@@ -3,6 +3,7 @@ import 'package:xmplaressflutter/menu/fragment/Home/HomeFragment.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/PersonalInformation.dart';
 import 'package:xmplaressflutter/menu/fragment/lms/Lmsfragment.dart';
 import 'package:xmplaressflutter/login/loginpage.dart';
+import 'package:xmplaressflutter/menu/fragment/TimeSheet/TimeSheetfragment.dart';
 void main() => runApp(menu(int ));
 class DrawerItem {
   String title;
@@ -31,11 +32,11 @@ class menu extends StatelessWidget{
 class menuPage  extends StatefulWidget
 { int _selectedDrawer;
   final drawerItems = [
-  new DrawerItem(" HOME", Icons.home),
-  new DrawerItem(" PERSONAL", Icons.person),
-  new DrawerItem(" LMS", Icons.perm_contact_calendar),
-  new DrawerItem(" TIME SHEET", Icons.timeline),
-  new DrawerItem(" PAY STATEMENT", Icons.payment),
+  new DrawerItem("HOME", Icons.home),
+  new DrawerItem("MY PROFILE", Icons.person),
+  new DrawerItem("LMS", Icons.perm_contact_calendar),
+  new DrawerItem("TIME SHEET", Icons.timeline),
+  new DrawerItem("PAY STATEMENT", Icons.payment),
 ];
 menuPage(int _selectedDrawerIndex)
 {
@@ -61,7 +62,7 @@ class menuPageState extends State<menuPage> {
       case 2:
         return new lms();
       case 3:
-        return new Text("Error");
+        return new TimeSheet();
       case 4:
         return new Text("Error");
       default:
@@ -80,14 +81,22 @@ class menuPageState extends State<menuPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Container(
-          child:Align(
-              alignment: Alignment(-0.3,0.0),
-              child:
-              Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic),)
+        title:Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic)),
+        actions: <Widget>[new Row(children: <Widget>[Container(
+          height:30.0,
+          width: 30.0,
+          decoration: new BoxDecoration
+            (
+              shape: BoxShape.circle,
+              image: DecorationImage
+                (image: NetworkImage("https://pbs.twimg.com/profile_images/958027004724461569/O_AiyJhe_400x400.jpg"),
+                  fit: BoxFit.fill
+              )
           ),
-        ),
+        ),],),Container(width: 10.0,)],
+        centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 80, 121 , 1.0),
+
       ),
       drawer: new Drawer(
           child: new Container(decoration: new BoxDecoration(color: Colors.white),
@@ -95,13 +104,19 @@ class menuPageState extends State<menuPage> {
             padding: const EdgeInsets.all(0.0),
             children: <Widget> [
               new UserAccountsDrawerHeader(
-                  
                   accountName: new Text("Dipu S James"), 
-                  currentAccountPicture: new Image.asset("assets/xmplarlogo.png"),
+                  currentAccountPicture:Container(
+                    decoration: new BoxDecoration
+                      (
+                        shape: BoxShape.circle,
+                        image: DecorationImage
+                          (image: NetworkImage("https://pbs.twimg.com/profile_images/958027004724461569/O_AiyJhe_400x400.jpg"),
+                            fit: BoxFit.fill
+                        )
+                    ),
+                  ),
                   accountEmail:  new Text("dipujames7@gmail.com"),
-                  decoration: new BoxDecoration(color: Color.fromRGBO(13, 80, 121 , 1.0),
-                      
-                  )
+                  decoration: new BoxDecoration(color: Color.fromRGBO(13, 80, 121 , 1.0),)
               ),
               new ListTile(
                 title: new Text('HOME'),
@@ -112,7 +127,7 @@ class menuPageState extends State<menuPage> {
               ),
               new Divider(),
               new ListTile(
-                title: new Text('PERSONAL'),
+                title: new Text('MY PROFILE'),
                 leading: new Icon(Icons.person),
                 onTap: () {
                   _onSelectItem(1);

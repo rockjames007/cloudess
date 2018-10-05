@@ -16,7 +16,7 @@ class BankDetails extends StatelessWidget {
                   ),
                   child:  ListTile(
                     dense: true,
-                    title:Text('Bank Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                    title:Text('Bank Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
                   ),
                 ),
                 SingleChildScrollView(
@@ -25,6 +25,7 @@ class BankDetails extends StatelessWidget {
                     children: <Widget>[
                       Card(
                         child: Container(
+                          color: Colors.blue.shade100.withOpacity(0.3),
                           child:Column(
                             children: <Widget>[
                               ListTile(
@@ -47,7 +48,7 @@ class BankDetails extends StatelessWidget {
 
                               ),
                               Container(
-                                  color: Color.fromRGBO(255, 237, 232, 1.0),
+                                  color: Colors.blue.shade100.withOpacity(0.5),
                                   child:
                                   ListTile(
                                     title: Column(
@@ -57,8 +58,8 @@ class BankDetails extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           text: TextSpan(children: <TextSpan>
                                           [
-                                            TextSpan(text:"Name On Account: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                            TextSpan(text:"Dipu s James",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                            TextSpan(text:"Name On Account: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"Dipu s James",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                           ),
                                         ),
@@ -67,8 +68,8 @@ class BankDetails extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           text: TextSpan(children: <TextSpan>
                                           [
-                                            TextSpan(text:"Bank Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                            TextSpan(text:"yes bank",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                            TextSpan(text:"Bank Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"yes bank",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                           ),
                                         ),
@@ -77,8 +78,8 @@ class BankDetails extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           text: TextSpan(children: <TextSpan>
                                           [
-                                            TextSpan(text:"Account Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                            TextSpan(text:"094568461362161",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                            TextSpan(text:"Account Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"094568461362161",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                           ),
                                         ),
@@ -87,8 +88,8 @@ class BankDetails extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           text: TextSpan(children: <TextSpan>
                                           [
-                                            TextSpan(text:"IFS Code: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                            TextSpan(text:"YOLO122313",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                            TextSpan(text:"IFS Code: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                            TextSpan(text:"YOLO122313",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                           ]
                                           ),
                                         ),

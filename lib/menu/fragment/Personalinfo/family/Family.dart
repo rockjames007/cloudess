@@ -17,7 +17,7 @@ class Family extends StatelessWidget {
               ),
               child:  ListTile(
                 dense: true,
-                title:Text('Family Member',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21.0),),
+                title:Text('Family Member',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
               ),
             ),
             SingleChildScrollView(
@@ -26,6 +26,7 @@ class Family extends StatelessWidget {
                 children: <Widget>[
                   Card(
                     child: Container(
+                      color: Colors.blue.shade100.withOpacity(0.3),
                       child:Column(
                         children: <Widget>[
                           ListTile(
@@ -59,7 +60,7 @@ class Family extends StatelessWidget {
 
                           ),
                           Container(
-                              color: Color.fromRGBO(255, 237, 232, 1.0),
+                              color: Colors.blue.shade100.withOpacity(0.5),
                               child:
                               ListTile(
                                 title: Column(
@@ -69,8 +70,8 @@ class Family extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Relationship Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"Father",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Relationship Type: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"Father",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -79,8 +80,8 @@ class Family extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"Saji james",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Name: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"Saji james",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -89,8 +90,8 @@ class Family extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Gender: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"Male",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Gender: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"Male",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -99,8 +100,8 @@ class Family extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Date Of Birth ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"10/02/1975",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Date Of Birth ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"10/02/1975",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -109,8 +110,8 @@ class Family extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"Dependent: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"No",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"Dependent: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"No",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
@@ -119,8 +120,8 @@ class Family extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       text: TextSpan(children: <TextSpan>
                                       [
-                                        TextSpan(text:"phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10.0)),
-                                        TextSpan(text:"999999999",style: TextStyle(color: Colors.black,fontSize: 10.0)),
+                                        TextSpan(text:"phone Number: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
+                                        TextSpan(text:"999999999",style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),
