@@ -63,7 +63,7 @@ class Qualification extends StatelessWidget {
 
               ),
               Container(
-                  color: Colors.blue.shade100.withOpacity(0.5),
+                  color: Color.fromRGBO(224, 251, 253, 1.0),
               child:
               ListTile(
               title: Column(

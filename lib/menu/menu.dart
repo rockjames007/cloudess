@@ -82,18 +82,8 @@ class menuPageState extends State<menuPage> {
     return new Scaffold(
       appBar: new AppBar(
         title:Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic)),
-        actions: <Widget>[new Row(children: <Widget>[Container(
-          height:30.0,
-          width: 30.0,
-          decoration: new BoxDecoration
-            (
-              shape: BoxShape.circle,
-              image: DecorationImage
-                (image: NetworkImage("https://pbs.twimg.com/profile_images/958027004724461569/O_AiyJhe_400x400.jpg"),
-                  fit: BoxFit.fill
-              )
-          ),
-        ),],),Container(width: 10.0,)],
+        actions: <Widget>[InkWell(child: Icon(Icons.exit_to_app),onTap: (){Route route = MaterialPageRoute(builder: (context) => Login());
+        Navigator.pushReplacement(context, route);})],
         centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 80, 121 , 1.0),
 

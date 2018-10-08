@@ -79,7 +79,7 @@ class _InfoState extends State<info>
                   child:Column(
                     children: <Widget>[
                       Container(
-                          color: Colors.blue.shade100.withOpacity(0.5),
+                          color: Color.fromRGBO(224, 251, 253, 1.0),
                           child:
                           ListTile(
                             title: Column(
@@ -171,7 +171,7 @@ class _InfoState extends State<info>
                           child:Column(
                             children: <Widget>[
                               Container(
-                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  color: Color.fromRGBO(224, 251, 253, 1.0),
                                   child:
                                   ListTile(
                                     dense: true,
@@ -264,7 +264,7 @@ class _InfoState extends State<info>
                           child:Column(
                             children: <Widget>[
                               Container(
-                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  color: Color.fromRGBO(224, 251, 253, 1.0),
                                   child:
                                   ListTile(
                                     dense: true,
@@ -394,7 +394,7 @@ class _InfoState extends State<info>
 
                               ),
                               Container(
-                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  color: Color.fromRGBO(224, 251, 253, 1.0),
                                   child:
                                   ListTile(
                                     title: Column(
@@ -458,7 +458,7 @@ class _InfoState extends State<info>
                               ),
 
                               Container(
-                                  color: Colors.blue.shade100.withOpacity(0.5),
+                                  color: Color.fromRGBO(224, 251, 253, 1.0),
                                   child:
                                   ListTile(
                                     title: Column(
