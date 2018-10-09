@@ -4,6 +4,7 @@ import 'package:xmplaressflutter/menu/fragment/Personalinfo/PersonalInformation.
 import 'package:xmplaressflutter/menu/fragment/lms/Lmsfragment.dart';
 import 'package:xmplaressflutter/login/loginpage.dart';
 import 'package:xmplaressflutter/menu/fragment/TimeSheet/TimeSheetfragment.dart';
+import 'package:xmplaressflutter/menu/fragment/PayStatement/PayStatement.dart';
 void main() => runApp(menu(int ));
 class DrawerItem {
   String title;
@@ -64,7 +65,7 @@ class menuPageState extends State<menuPage> {
       case 3:
         return new TimeSheet();
       case 4:
-        return new Text("Error");
+        return new PayStatement();
       default:
         return new Text("Error");
     }

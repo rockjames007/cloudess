@@ -4,7 +4,7 @@ class Qualification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: null,child: Icon(Icons.add),),
+      floatingActionButton:FloatingActionButton(onPressed: null,child: Icon(Icons.add),),
       backgroundColor:Color.fromRGBO(13, 80, 121 , 1.0),
       body:new Container(
         child:new SingleChildScrollView(
