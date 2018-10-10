@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<Post> fetchPost() async {
   final response =
-  await http.get('https://login.microsoftonline.com/common/oauth2/v2.0/authorize');
+  await http.get('https://jsonplaceholder.typicode.com/posts/1');
 
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON
@@ -27,7 +27,7 @@ class Post {
     return Post(
       userId: json['userId'],
       id: json['id'],
-      title: json['CreatedDateTime'],
+      title: json['title'],
       body: json['body'],
     );
   }
@@ -44,7 +44,7 @@ class PayStatement extends StatelessWidget {
             future: fetchPost(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data.title);
+                return Text(snapshot.data.body,style: TextStyle(color: Colors.red),);
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
