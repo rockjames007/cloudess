@@ -1,24 +1,63 @@
 import 'package:flutter/material.dart';
 
 main() => runApp(TimeSheet());
-
-class TimeSheet extends StatelessWidget {
+class TimeSheet extends StatefulWidget {
+  State<StatefulWidget> createState() {
+    return _TimeSheetState();
+  }
+}
+class _TimeSheetState extends State<TimeSheet>
+{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          _buildCarouselItem()
-        ],
-      )
+      body: _buildCarouselItem()
     );
   }
-
-
+var item;
+  List<String> _tasks = <String>[' General -- Common Team Meeting -- Meeting/Discussions',
+  '',
+  ' General -- Common Team Meeting -- Meeting/Discussions',
+  ' General -- Leave -- Leave',
+  ' General -- Self Learning -- Self Learning',
+  ' General -- Training -- Training',
+  ' General -- Pre Sales -- Presale Review Meetings/Documentation',
+  ' General -- Pre Sales -- Demo Preparation & Presentation',
+  ' General -- Pre Sales -- Time spent in xFact Office',
+  ' General -- NA -- NA',
+  ' MCO-ERP-DEV-01 -- Planning -- R&D on Std Ofbiz Processes',
+  ' MCO-ERP-DEV-01 -- Planning -- Documentation ',
+  ' MCO-ERP-DEV-01 -- Planning -- Process Workshop / Review',
+  ' MCO-ERP-DEV-01 -- Planning -- Internal Review Meetings',
+  ' MCO-ERP-DEV-01 -- Project Management -- Internal Review Meetings',
+  ' MCO-ERP-DEV-01 -- Project Management -- Customer Meetings/Discussions',
+  ' MCO-ERP-DEV-01 -- OOS - Upgrade -- Upgrade Tasks',
+  ' MCO-ERP-DEV-01 -- OOS - Upgrade -- Review / Documentation',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Development',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Functional Testing',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Status Reports',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Ecommerce external Link',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->External Site-->Order Confirmation',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- E Commerce-->Internal Site',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- External E commerce Website ',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- External E commerce Website -> Add To Cart ',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- go to url->homepage->home category',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Party > Update Contact Information',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Promos',
+  ' MCO-ERP-DEV-01 -- Development & Testing -- Wishlist '
+  ];
+  String _task='';
   Widget _buildCarouselItem() {
     return Container(
       color: Colors.blue,
-      height: 100.0,
       child: PageView.builder(
         // store this controller in a State to save the carousel scroll position
         scrollDirection: Axis.horizontal,
@@ -26,14 +65,18 @@ class TimeSheet extends StatelessWidget {
         controller: PageController(initialPage: 9),
         itemBuilder: (BuildContext context, int itemIndex) {
 
-          return _buildCarousel();
+        return _buildCarousel(itemIndex);
         },
       ),
     );
   }
-  Widget _buildCarousel() {
-    return Card(
+  Widget _buildCarousel(int pos) {
+    return Column
+      (
+    children: <Widget> [
+    Card(
       child: Container(
+        height: 70.0,
         decoration: BoxDecoration(
           color: Colors.orange,
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
@@ -44,6 +87,41 @@ class TimeSheet extends StatelessWidget {
           )) ,
         )
       ),
+    ),
+    Container(
+        color: Color.fromRGBO(224, 251, 253, 1.0),
+        child:
+       ListTile(
+         title: Column(
+              children: <Widget>[
+                InputDecorator(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.receipt),
+                    labelText: 'Task Name',
+                  ),
+                  child: new DropdownButtonHideUnderline(
+                    child: new DropdownButton<String>(
+                      value: _task,
+                      isDense: true,
+                      onChanged: (String newValue) {
+                        setState(() {
+                          _task = newValue;
+                        });
+                      },
+                      items: _tasks.map((String value) {
+                        return new DropdownMenuItem<String>(
+                          value: value,
+                          child: new RichText(text: TextSpan(text: value,style: TextStyle(fontSize: 6.0,color: Colors.black),),),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                )
+              ],
+        ),
+        ),
+       ),
+       ]
     );
   }
 }
