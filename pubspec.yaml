@@ -12,6 +12,8 @@ dependencies:
   sqflite: any
   path_provider: ^0.4.1
   json_annotation: ^0.2.3
+  firebase_core: ^0.2.5
+  firebase_auth: ^0.5.19
 
 dev_dependencies:
   flutter_test:

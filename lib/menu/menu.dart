@@ -5,7 +5,10 @@ import 'package:xmplaressflutter/menu/fragment/lms/Lmsfragment.dart';
 import 'package:xmplaressflutter/login/loginpage.dart';
 import 'package:xmplaressflutter/menu/fragment/TimeSheet/TimeSheetfragment.dart';
 import 'package:xmplaressflutter/menu/fragment/PayStatement/PayStatement.dart';
-void main() => runApp(menu(int ));
+import 'package:xmplaressflutter/auth_provider.dart';
+import 'package:xmplaressflutter/menu/logout.dart';
+void main() => runApp(menu(int));
+
 class DrawerItem {
   String title;
   IconData icon;
@@ -13,9 +16,21 @@ class DrawerItem {
 }
 class menu extends StatelessWidget{
   int _selectedDrawerIndex;
-  menu(pos)
+  int logout_status;
+  menu(pos,{this.onSignedOut})
   {
     _selectedDrawerIndex = pos;
+    logout_status=0;
+  }
+  final VoidCallback onSignedOut;
+  void _signOut(BuildContext context) async {
+    try {
+      var auth = AuthProvider.of(context).auth;
+      await auth.signOut();
+      onSignedOut();
+    } catch (e) {
+      print(e);
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -150,13 +165,11 @@ class menuPageState extends State<menuPage> {
               new ListTile(
                 leading: new Icon(Icons.exit_to_app),
                 title: new Text('LOG OUT'),
-                onTap: (){Route route = MaterialPageRoute(builder: (context) => Login());
-                Navigator.pushReplacement(context, route);}
-              ),
+                onTap:()=> ,
               new Divider(),
             ],
           )
-          )
+          ),
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
     );
