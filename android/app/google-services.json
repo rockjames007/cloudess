@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "758111923486",
+    "firebase_url": "https://xmplar-ess.firebaseio.com",
+    "project_id": "xmplar-ess",
+    "storage_bucket": "xmplar-ess.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758111923486:android:60fdd3558b798da7",
+        "android_client_info": {
+          "package_name": "com.example.xmplaressflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758111923486-njk4tkenvvudjjm1pqarjvabm7sq6629.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_DDys74TafRp4xuXl1wBZTZMBpB4rSLs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

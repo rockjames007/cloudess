@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xmplaressflutter/login/loginpage.dart';
 import 'package:flutter/services.dart';
+import 'package:xmplaressflutter/auth.dart';
+import 'package:xmplaressflutter/root_page.dart';
 void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -17,7 +18,7 @@ class mainPage extends StatelessWidget
   Widget build(BuildContext context) {
     return MaterialApp
       ( debugShowCheckedModeBanner: false,
-        home: new Login(),
+        home: new RootPage(auth: new Auth()),
 
     );
   }
