@@ -5,10 +5,10 @@ import 'package:xmplaressflutter/menu/fragment/lms/Lmsfragment.dart';
 import 'package:xmplaressflutter/login/loginpage.dart';
 import 'package:xmplaressflutter/menu/fragment/TimeSheet/TimeSheetfragment.dart';
 import 'package:xmplaressflutter/menu/fragment/PayStatement/PayStatement.dart';
-import 'package:xmplaressflutter/auth_provider.dart';
-import 'package:xmplaressflutter/menu/logout.dart';
-void main() => runApp(menu(int));
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:xmplaressflutter/auth.dart';
+import 'package:xmplaressflutter/root_page.dart';
+void main() => runApp(menu(int ));
 class DrawerItem {
   String title;
   IconData icon;
@@ -16,21 +16,9 @@ class DrawerItem {
 }
 class menu extends StatelessWidget{
   int _selectedDrawerIndex;
-  int logout_status;
-  menu(pos,{this.onSignedOut})
+  menu(pos)
   {
     _selectedDrawerIndex = pos;
-    logout_status=0;
-  }
-  final VoidCallback onSignedOut;
-  void _signOut(BuildContext context) async {
-    try {
-      var auth = AuthProvider.of(context).auth;
-      await auth.signOut();
-      onSignedOut();
-    } catch (e) {
-      print(e);
-    }
   }
   @override
   Widget build(BuildContext context) {
@@ -66,6 +54,15 @@ State<StatefulWidget> createState() {
 
 class menuPageState extends State<menuPage> {
   int _selectedDrawerIndex;
+  void _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Login();
+    } catch (e) {
+      print(e);
+    }
+
+  }
   menuPageState(int pos) {
     _selectedDrawerIndex = pos;
   }
@@ -98,7 +95,8 @@ class menuPageState extends State<menuPage> {
     return new Scaffold(
       appBar: new AppBar(
         title:Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic)),
-        actions: <Widget>[InkWell(child: Icon(Icons.exit_to_app),onTap: (){Route route = MaterialPageRoute(builder: (context) => Login());
+        actions: <Widget>[InkWell(child: Icon(Icons.exit_to_app),onTap: (){_signOut();
+        Route route = MaterialPageRoute(builder: (context) => RootPage(auth: new Auth()));
         Navigator.pushReplacement(context, route);})],
         centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 80, 121 , 1.0),
@@ -165,11 +163,15 @@ class menuPageState extends State<menuPage> {
               new ListTile(
                 leading: new Icon(Icons.exit_to_app),
                 title: new Text('LOG OUT'),
-                onTap:()=> ,
+                onTap: (){_signOut();
+              Route route = MaterialPageRoute(builder: (context) => RootPage(auth: new Auth()));
+           Navigator.pushReplacement(context, route);
+                }
+              ),
               new Divider(),
             ],
           )
-          ),
+          )
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
     );

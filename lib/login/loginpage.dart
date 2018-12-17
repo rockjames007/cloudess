@@ -1,158 +1,162 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:xmplaressflutter/auth_provider.dart';
-enum FormType {
-  login
+import 'package:xmplaressflutter/auth.dart';
+import 'package:xmplaressflutter/login/primary_button.dart';
+void main(){
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
+  runApp(Login());
 }
-class Login extends StatefulWidget {
-  Login({this.onSignedIn});
-  final VoidCallback onSignedIn;
+
+class Login extends StatefulWidget  {
+  Login({Key key, this.title, this.auth, this.onSignIn}) : super(key: key);
+
+  final String title;
+  final BaseAuth auth;
+  final VoidCallback onSignIn;
+
   @override
-  State<StatefulWidget> createState() => _LoginPageState();
+  _LoginPageState createState() => new _LoginPageState();
 }
-class _LoginPageState extends State<Login>{
-  final formKey = GlobalKey<FormState>();
+enum FormType {
+  login,
+}
+class _LoginPageState extends State<Login> {
+  static final formKey = new GlobalKey<FormState>();
 
   String _email;
   String _password;
   FormType _formType = FormType.login;
-  bool validateAndSave(){
-    final form=formKey.currentState;
-    if(form.validate()) {
+  String _authHint = '';
+
+  bool validateAndSave() {
+    final form = formKey.currentState;
+    if (form.validate()) {
       form.save();
       return true;
     }
-    else {return false;
-    }
-
+    return false;
   }
+
   void validateAndSubmit() async {
     if (validateAndSave()) {
       try {
-        var auth = AuthProvider.of(context).auth;
-        if (_formType == FormType.login) {
-          String userId =
-          await auth.signInWithEmailAndPassword(_email, _password);
-          print('Signed in: $userId');
-        } else {
-          String userId = await auth
-              .createUserWithEmailAndPassword(_email, _password);
-          print('Registered user: $userId');
-        }
-        widget.onSignedIn();
-      } catch (e) {
-        print('Error: $e');
+        String userId = _formType == FormType.login
+            ? await widget.auth.signIn(_email, _password)
+            : await widget.auth.createUser(_email, _password);
+        setState(() {
+          _authHint = 'Signed In\n\nUser id: $userId';
+        });
+        widget.onSignIn();
       }
+      catch (e) {
+        setState(() {
+          _authHint = 'Sign In Error\n\n${e.toString()}';
+        });
+        print(e);
+      }
+    } else {
+      setState(() {
+        _authHint = '';
+      });
     }
   }
-
   void moveToLogin() {
     formKey.currentState.reset();
     setState(() {
       _formType = FormType.login;
+      _authHint = '';
     });
+  }
+
+  List<Widget> usernameAndPassword() {
+    return [
+      padded(child: new TextFormField(
+        key: new Key('email'),
+        decoration: new InputDecoration(labelText: 'Email'),
+        autocorrect: false,
+        validator: (val) => val.isEmpty ? 'Email can\'t be empty.' : null,
+        onSaved: (val) => _email = val,
+      )),
+      padded(child: new TextFormField(
+        key: new Key('password'),
+        decoration: new InputDecoration(labelText: 'Password'),
+        obscureText: true,
+        autocorrect: false,
+        validator: (val) => val.isEmpty ? 'Password can\'t be empty.' : null,
+        onSaved: (val) => _password = val,
+      )),
+    ];
+  }
+
+  List<Widget> submitWidgets() {
+    switch (_formType) {
+      case FormType.login:
+        return [
+          new PrimaryButton(
+              key: new Key('login'),
+              text: 'Login',
+              height: 44.0,
+              onPressed: validateAndSubmit
+          ),
+        ];
+    }
+    return null;
+  }
+
+  Widget hintText() {
+    return new Container(
+      //height: 80.0,
+        padding: const EdgeInsets.all(32.0),
+        child: new Text(
+            _authHint,
+            key: new Key('hint'),
+            style: new TextStyle(fontSize: 18.0, color: Colors.grey),
+            textAlign: TextAlign.center)
+    );
   }
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-      (
-       body: new Container
-         (
-         decoration: BoxDecoration(
-           image: DecorationImage(image: AssetImage("assets/backgroundcolor.png"),
-               fit: BoxFit.cover,
-           )
-         ),
-         child: new Form(
-           key: formKey,
-           child: new ListView(
-             shrinkWrap: true,
-             children: <Widget>[
-               _sizedBox(50.0),
-               _logo(),
-               _sizedBox(100.0),
-               _emailInput(),
-               _sizedBox(15.0),
-               _passwordInput(),
-               _sizedBox(30.0),
-               _submitButton(),
-               _label(),
-               // UI Components here
-             ],
-           ),
-         )
-       )
-    );
-  }
-  Widget _logo() {
-    return new Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/xmplarlogo.png'),
-      ),
-    );
-  }
-  Widget _emailInput() {
-    return new TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      autofocus: false,
-      decoration: new InputDecoration(
-          hintText: 'Email',
-          icon: new Icon(
-            Icons.mail,
-            color: Colors.grey,
-          )),
-      validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
-      onSaved: (value) => _email = value,
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text(widget.title),
+        ),
+        backgroundColor: Colors.grey[300],
+        body: new SingleChildScrollView(child: new Container(
+            padding: const EdgeInsets.all(16.0),
+            child: new Column(
+                children: [
+                  new Card(
+                      child: new Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            new Container(
+                                padding: const EdgeInsets.all(16.0),
+                                child: new Form(
+                                    key: formKey,
+                                    child: new Column(
+                                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      children: usernameAndPassword() + submitWidgets(),
+                                    )
+                                )
+                            ),
+                          ])
+                  ),
+                  hintText()
+                ]
+            )
+        ))
     );
   }
 
-  Widget _passwordInput() {
-    return new TextFormField(
-      obscureText: true,
-      autofocus: false,
-      decoration: new InputDecoration(
-          hintText: 'Password',
-          icon: new Icon(
-            Icons.lock,
-            color: Colors.grey,
-          )),
-      validator: (value) =>
-      value.isEmpty ? 'Password can\'t be empty' : null,
-      onSaved: (value) => _password = value,
+  Widget padded({Widget child}) {
+    return new Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: child,
     );
   }
-  Widget _sizedBox(_height) {
-    return new SizedBox(height: _height);
-  }
-  Widget _submitButton() {
-      return
-        new Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: new Material(
-                borderRadius: BorderRadius.circular(30.0),
-                shadowColor: Colors.blueAccent.shade100,
-                elevation: 5.0,
-                child: new MaterialButton(
-                  minWidth: 200.0,
-                  height: 42.0,
-                  color: Colors.blue,
-                  child: new Text('Login',
-                      style:
-                      new TextStyle(fontSize: 20.0, color: Colors.white)),
-                  onPressed: validateAndSubmit,
-                )));
-  }
-  Widget _label() {
-    new FlatButton(
-      child: new Text('Have an account? Sign in',
-          style:
-          new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300)),
-      onPressed: moveToLogin,
-    );
-  }
-  }
+}
