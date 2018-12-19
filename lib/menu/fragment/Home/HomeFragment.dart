@@ -45,7 +45,7 @@ class HomeFragment extends StatelessWidget {
                              title:new InkWell(
                                onTap:(){Navigator.push(
                                  context,
-                                 MaterialPageRoute(builder: (context) => menuPage(1)) ,
+                                 MaterialPageRoute(builder: (context) => Menu(1)),
                                );},
                                child: new Card(
                                    color: Color.fromRGBO(85, 180, 255,1.0),
@@ -80,8 +80,7 @@ class HomeFragment extends StatelessWidget {
                              title:new InkWell(
                                onTap:(){Navigator.push(
                                  context,
-                                 MaterialPageRoute(builder: (context) => menuPage(2)) ,
-                               );},
+                                 MaterialPageRoute(builder: (context) => Menu(2)) , );},
                                child: new Card(
                                  color: Color.fromRGBO(255, 183, 85,1.0),
                                  child: new Column(
@@ -147,7 +146,7 @@ class HomeFragment extends StatelessWidget {
                              title:new InkWell(
                                onTap:(){Navigator.push(
                                  context,
-                                 MaterialPageRoute(builder: (context) => menuPage(3)) ,
+                                 MaterialPageRoute(builder: (context) => Menu(3)) ,
                                );},
                                child: new Card(
                                  color: Color.fromRGBO(151, 255, 74 ,0.5),
@@ -182,7 +181,7 @@ class HomeFragment extends StatelessWidget {
                              title:new InkWell(
                                onTap:(){Navigator.push(
                                  context,
-                                 MaterialPageRoute(builder: (context) => menuPage(4)) ,
+                                 MaterialPageRoute(builder: (context) => Menu(4)) ,
                                );},
                                child: new Card(
                                  color: Color.fromRGBO(255, 126, 126  ,1.0),

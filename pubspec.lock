@@ -22,6 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
+  cloud_firestore:
+    dependency: "direct main"
+    description:
+      name: cloud_firestore
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.2+3"
   collection:
     dependency: transitive
     description:
@@ -50,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.20"
+  firebase_core:
+    dependency: transitive
+    description:
+      name: firebase_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.5+1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -81,13 +95,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.7"
-  json_annotation:
-    dependency: "direct main"
-    description:
-      name: json_annotation
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.9+1"
   matcher:
     dependency: transitive
     description:
@@ -109,13 +116,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
-  path_provider:
-    dependency: "direct main"
-    description:
-      name: path_provider
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.1"
   quiver:
     dependency: transitive
     description:
@@ -135,13 +135,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.1"
-  sqflite:
-    dependency: "direct main"
-    description:
-      name: sqflite
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.13.0"
   stack_trace:
     dependency: transitive
     description:
@@ -163,13 +156,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  synchronized:
-    dependency: transitive
-    description:
-      name: synchronized
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.5.3"
   term_glyph:
     dependency: transitive
     description:
@@ -200,4 +186,4 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.0.0 <3.0.0"
-  flutter: ">=0.1.4 <2.0.0"
+  flutter: ">=0.2.4 <2.0.0"

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:xmplaressflutter/auth.dart';
-import 'package:xmplaressflutter/login/primary_button.dart';
+
 void main(){
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -9,29 +9,42 @@ void main(){
   ]);
   runApp(Login());
 }
+class EmailFieldValidator {
+  static String validate(String value) {
+    return value.isEmpty ? 'Email can\'t be empty' : null;
+  }
+}
 
-class Login extends StatefulWidget  {
-  Login({Key key, this.title, this.auth, this.onSignIn}) : super(key: key);
+class PasswordFieldValidator {
+  static String validate(String value) {
+    return value.isEmpty ? 'Password can\'t be empty' : null;
+  }
+}
 
+class Login extends StatefulWidget {
+  Login({Key key, this.title, this.auth, this.onSignedIn}) : super(key: key);
+  final VoidCallback onSignedIn;
   final String title;
   final BaseAuth auth;
-  final VoidCallback onSignIn;
-
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  State<StatefulWidget> createState() => _LoginPageState();
 }
+
 enum FormType {
   login,
 }
-class _LoginPageState extends State<Login> {
-  static final formKey = new GlobalKey<FormState>();
 
+class _LoginPageState extends State<Login> {
+  final formKey = GlobalKey<FormState>();
+  bool _load = false;
   String _email;
   String _password;
   FormType _formType = FormType.login;
   String _authHint = '';
-
   bool validateAndSave() {
+    setState((){
+      _load=true;
+    });
     final form = formKey.currentState;
     if (form.validate()) {
       form.save();
@@ -39,7 +52,6 @@ class _LoginPageState extends State<Login> {
     }
     return false;
   }
-
   void validateAndSubmit() async {
     if (validateAndSave()) {
       try {
@@ -49,7 +61,7 @@ class _LoginPageState extends State<Login> {
         setState(() {
           _authHint = 'Signed In\n\nUser id: $userId';
         });
-        widget.onSignIn();
+        widget.onSignedIn();
       }
       catch (e) {
         setState(() {
@@ -67,96 +79,92 @@ class _LoginPageState extends State<Login> {
     formKey.currentState.reset();
     setState(() {
       _formType = FormType.login;
-      _authHint = '';
     });
   }
 
-  List<Widget> usernameAndPassword() {
-    return [
-      padded(child: new TextFormField(
-        key: new Key('email'),
-        decoration: new InputDecoration(labelText: 'Email'),
-        autocorrect: false,
-        validator: (val) => val.isEmpty ? 'Email can\'t be empty.' : null,
-        onSaved: (val) => _email = val,
-      )),
-      padded(child: new TextFormField(
-        key: new Key('password'),
-        decoration: new InputDecoration(labelText: 'Password'),
-        obscureText: true,
-        autocorrect: false,
-        validator: (val) => val.isEmpty ? 'Password can\'t be empty.' : null,
-        onSaved: (val) => _password = val,
-      )),
-    ];
-  }
-
-  List<Widget> submitWidgets() {
-    switch (_formType) {
-      case FormType.login:
-        return [
-          new PrimaryButton(
-              key: new Key('login'),
-              text: 'Login',
-              height: 44.0,
-              onPressed: validateAndSubmit
-          ),
-        ];
-    }
-    return null;
-  }
-
-  Widget hintText() {
-    return new Container(
-      //height: 80.0,
-        padding: const EdgeInsets.all(32.0),
-        child: new Text(
-            _authHint,
-            key: new Key('hint'),
-            style: new TextStyle(fontSize: 18.0, color: Colors.grey),
-            textAlign: TextAlign.center)
-    );
-  }
-
-
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text(widget.title),
-        ),
-        backgroundColor: Colors.grey[300],
-        body: new SingleChildScrollView(child: new Container(
-            padding: const EdgeInsets.all(16.0),
-            child: new Column(
-                children: [
-                  new Card(
-                      child: new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            new Container(
-                                padding: const EdgeInsets.all(16.0),
-                                child: new Form(
-                                    key: formKey,
-                                    child: new Column(
-                                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                                      children: usernameAndPassword() + submitWidgets(),
-                                    )
-                                )
-                            ),
-                          ])
-                  ),
-                  hintText()
-                ]
-            )
-        ))
+
+    Widget loadingIndicator =_load? new Container(
+      width: 70.0,
+      height: 70.0,
+      child: new Padding(padding: const EdgeInsets.all(5.0),child: new Center(child: new CircularProgressIndicator())),
+    ):new Container();
+    return Scaffold(
+        resizeToAvoidBottomPadding: false,
+        body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/backgroundcolor.png"),fit: BoxFit.cover),
+            ),
+            padding: EdgeInsets.all(16.0),
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[_sizedBox(50.0),
+                _logo(),
+                _sizedBox(50.0),
+                _emailInput(),
+                _sizedBox(15.0),
+                _passwordInput(),
+                _sizedBox(100.0),
+                _submitButton(),
+                new Align(child: loadingIndicator,alignment: FractionalOffset.center,),
+                ],
+              ),
+            )));
+  }
+  Widget _emailInput() {
+    return new TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      autofocus: false,
+      decoration: new InputDecoration(
+          hintText: 'Email',
+          icon: new Icon(
+            Icons.mail,
+            color: Colors.black,
+          )),
+      validator: EmailFieldValidator.validate,
+      onSaved: (value) => _email = value,
     );
   }
 
-  Widget padded({Widget child}) {
-    return new Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0),
-      child: child,
+  Widget _passwordInput() {
+    return new TextFormField(
+      obscureText: true,
+      autofocus: false,
+      decoration: new InputDecoration(
+          hintText: 'Password',
+          icon: new Icon(
+            Icons.lock,
+            color: Colors.black,
+          )),
+      validator: PasswordFieldValidator.validate,
+      onSaved: (value) => _password = value,
     );
+  }
+  Widget _submitButton() {
+      return
+        new SizedBox(
+          height: 40.0,
+          child:RaisedButton(
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  color: Colors.blue,
+                  child: new Text('Login',
+                      style:
+                      new TextStyle(fontSize: 15.0, color: Colors.white)),
+                  onPressed: validateAndSubmit,),
+                );
+  }
+  Widget _logo() {
+    return new Image(
+      image:AssetImage('assets/xmplarlogo.png'),
+      colorBlendMode: BlendMode.darken,
+      width: 150.0,
+      height: 150.0,
+    );
+  }
+  Widget _sizedBox(_height) {
+    return new SizedBox(height: _height);
   }
 }

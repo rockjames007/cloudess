@@ -70,7 +70,7 @@ class _InfoState extends State<info>
                    ListTile(
                     dense: true,
                     title:Text('Personal Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
-                 trailing: FloatingActionButton(elevation: 22.0,mini: true,child:new Icon(Icons.edit),onPressed:(){showDialog(context: context,builder: (BuildContext context){HapticFeedback.vibrate();return EditPersonInfo();
+                 trailing: FloatingActionButton(elevation: 22.0,mini: true,heroTag: null,child:new Icon(Icons.edit),onPressed:(){showDialog(context: context,builder: (BuildContext context){HapticFeedback.vibrate();return EditPersonInfo();
                   });}
                   ),
                 ),
@@ -386,7 +386,7 @@ class _InfoState extends State<info>
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text('Primary Contact:',style: TextStyle(fontWeight: FontWeight.bold),),
-                                          FloatingActionButton(onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
+                                          FloatingActionButton(heroTag: null,onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditPrimaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
                                         ]
                                     ),
                                   ],
@@ -450,7 +450,7 @@ class _InfoState extends State<info>
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: <Widget>[
                                             Text('Secondary Contact:',style: TextStyle(fontWeight: FontWeight.bold),),
-                                            FloatingActionButton(onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
+                                            FloatingActionButton(heroTag: null,onPressed: (){showDialog(context:context,builder:(BuildContext context){HapticFeedback.vibrate();return EditSecondaryContactDetails();});},child: Icon(Icons.edit),mini:true ,)
                                           ]
                                       ),
                                     ],

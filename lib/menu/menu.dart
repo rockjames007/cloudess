@@ -6,17 +6,18 @@ import 'package:xmplaressflutter/login/loginpage.dart';
 import 'package:xmplaressflutter/menu/fragment/TimeSheet/TimeSheetfragment.dart';
 import 'package:xmplaressflutter/menu/fragment/PayStatement/PayStatement.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:xmplaressflutter/auth.dart';
 import 'package:xmplaressflutter/root_page.dart';
-void main() => runApp(menu(int ));
+void main() => runApp(Menu(int ));
 class DrawerItem {
   String title;
   IconData icon;
   DrawerItem(this.title, this.icon);
 }
-class menu extends StatelessWidget{
+class Menu extends StatelessWidget{
   int _selectedDrawerIndex;
-  menu(pos)
+  Menu(pos)
   {
     _selectedDrawerIndex = pos;
   }
@@ -53,6 +54,11 @@ State<StatefulWidget> createState() {
 }
 
 class menuPageState extends State<menuPage> {
+  Auth a;
+  set() {
+    String uid = a.currentUser().toString();
+    final DocumentReference documentReference = Firestore.instance.collection("users").document(uid);
+  }
   int _selectedDrawerIndex;
   void _signOut() async {
     try {
@@ -63,6 +69,7 @@ class menuPageState extends State<menuPage> {
     }
 
   }
+
   menuPageState(int pos) {
     _selectedDrawerIndex = pos;
   }
@@ -86,6 +93,8 @@ class menuPageState extends State<menuPage> {
   _onSelectItem(int index) {
     setState((){
       _selectedDrawerIndex = index;
+      String uid = a.currentUser().toString();
+      DocumentReference documentReference = Firestore.instance.collection("users").document(uid);
     });
     Navigator.of(context).pop(); // close the drawer
   }
@@ -101,6 +110,7 @@ class menuPageState extends State<menuPage> {
         centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 80, 121 , 1.0),
 
+
       ),
       drawer: new Drawer(
           child: new Container(decoration: new BoxDecoration(color: Colors.white),
@@ -108,7 +118,7 @@ class menuPageState extends State<menuPage> {
             padding: const EdgeInsets.all(0.0),
             children: <Widget> [
               new UserAccountsDrawerHeader(
-                  accountName: new Text("Dipu S James"), 
+                 accountName: Text("dipu s james"),
                   currentAccountPicture:Container(
                     decoration: new BoxDecoration
                       (
@@ -135,8 +145,8 @@ class menuPageState extends State<menuPage> {
                 leading: new Icon(Icons.person),
                 onTap: () {
                   _onSelectItem(1);
-                  },
-                selected: 1== _selectedDrawerIndex,
+                },
+                selected: 1 == _selectedDrawerIndex,
               ),
               new Divider(),
               new ListTile(
@@ -176,4 +186,5 @@ class menuPageState extends State<menuPage> {
       body: _getDrawerItemWidget(_selectedDrawerIndex),
     );
   }
+
 }

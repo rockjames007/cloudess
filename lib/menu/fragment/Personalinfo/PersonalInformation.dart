@@ -83,14 +83,14 @@ class _UserInfoState extends State<PersonalInformation>
   }
 }
 class PlaceholderWidget extends StatelessWidget {
-  int _selectedDrawerIndex;
+  int _selectedBottomIndex;
   PlaceholderWidget(int pos) {
-    _selectedDrawerIndex=pos;
+    _selectedBottomIndex=pos;
   }
   @override
   Widget build(BuildContext context) {
 
-    switch (_selectedDrawerIndex) {
+    switch (_selectedBottomIndex) {
       case 0:
         return new info();
       case 1:
