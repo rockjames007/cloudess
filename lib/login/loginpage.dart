@@ -50,6 +50,9 @@ class _LoginPageState extends State<Login> {
       form.save();
       return true;
     }
+    setState((){
+      _load=false;
+    });
     return false;
   }
   void validateAndSubmit() async {
@@ -65,12 +68,14 @@ class _LoginPageState extends State<Login> {
       }
       catch (e) {
         setState(() {
-          _authHint = 'Sign In Error\n\n${e.toString()}';
+          _authHint = '!Sign In Error , Please check your email or password';
+          _load=false;
         });
         print(e);
       }
     } else {
       setState(() {
+        _load=false;
         _authHint = '';
       });
     }
@@ -108,6 +113,7 @@ class _LoginPageState extends State<Login> {
                 _sizedBox(15.0),
                 _passwordInput(),
                 _sizedBox(100.0),
+                _checkErrorInLogin(),
                 _submitButton(),
                 new Align(child: loadingIndicator,alignment: FractionalOffset.center,),
                 ],
@@ -143,18 +149,25 @@ class _LoginPageState extends State<Login> {
       onSaved: (value) => _password = value,
     );
   }
+  Widget _checkErrorInLogin(){
+
+    return
+      new Text(_authHint,style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,
+      );
+
+  }
   Widget _submitButton() {
-      return
-        new SizedBox(
-          height: 40.0,
-          child:RaisedButton(
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                  color: Colors.blue,
-                  child: new Text('Login',
-                      style:
-                      new TextStyle(fontSize: 15.0, color: Colors.white)),
-                  onPressed: validateAndSubmit,),
-                );
+    return
+      new SizedBox(
+        height: 40.0,
+        child:RaisedButton(
+          shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+          color: Colors.blue,
+          child: new Text('Login',
+              style:
+              new TextStyle(fontSize: 15.0, color: Colors.white)),
+          onPressed: validateAndSubmit,),
+      );
   }
   Widget _logo() {
     return new Image(

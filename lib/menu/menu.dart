@@ -93,8 +93,6 @@ class menuPageState extends State<menuPage> {
   _onSelectItem(int index) {
     setState((){
       _selectedDrawerIndex = index;
-      String uid = a.currentUser().toString();
-      DocumentReference documentReference = Firestore.instance.collection("users").document(uid);
     });
     Navigator.of(context).pop(); // close the drawer
   }
