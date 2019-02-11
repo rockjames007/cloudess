@@ -54,12 +54,18 @@ State<StatefulWidget> createState() {
 }
 
 class menuPageState extends State<menuPage> {
-  Auth a;
-  set() {
-    String uid = a.currentUser().toString();
-    final DocumentReference documentReference = Firestore.instance.collection("users").document(uid);
-  }
+  FirebaseUser _user;
   int _selectedDrawerIndex;
+  @override
+  void initState(){
+    super.initState();
+    FirebaseAuth.instance.currentUser().then(
+        (user)=>setState(() =>
+           this._user=user
+        )
+    );
+
+  }
   void _signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
@@ -99,6 +105,19 @@ class menuPageState extends State<menuPage> {
 
   @override
   Widget build(BuildContext context) {
+    final useremail =Text(_user==null?'You arent logged in.': '${_user.email}');
+    final username =Text(_user==null?'You arent logged in.': '${_user.displayName}');
+    final userid =Text(_user==null?'You arent logged in.': '${_user.uid}');
+    Future<String> getChannelName() async {
+      DocumentSnapshot snapshot= await Firestore.instance.collection('users').document(userid.toString()).get();
+      var usern= snapshot['name'];
+      var em=snapshot['email'];
+      if (usern is String) {
+      return usern;
+      } else {
+      throw 'error';
+      }
+    }
     return new Scaffold(
       appBar: new AppBar(
         title:Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic)),
@@ -116,7 +135,7 @@ class menuPageState extends State<menuPage> {
             padding: const EdgeInsets.all(0.0),
             children: <Widget> [
               new UserAccountsDrawerHeader(
-                 accountName: Text("dipu s james"),
+                 accountName: username,
                   currentAccountPicture:Container(
                     decoration: new BoxDecoration
                       (
@@ -127,7 +146,7 @@ class menuPageState extends State<menuPage> {
                         )
                     ),
                   ),
-                  accountEmail:  new Text("dipujames7@gmail.com"),
+                      accountEmail:  useremail,
                   decoration: new BoxDecoration(color: Color.fromRGBO(13, 80, 121 , 1.0),)
               ),
               new ListTile(
