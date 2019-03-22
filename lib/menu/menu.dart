@@ -9,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:xmplaressflutter/auth.dart';
 import 'package:xmplaressflutter/root_page.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 void main() => runApp(Menu(int ));
 class DrawerItem {
   String title;
@@ -36,6 +37,7 @@ class Menu extends StatelessWidget{
 }
 class menuPage  extends StatefulWidget
 { int _selectedDrawer;
+  String userid;
   final drawerItems = [
   new DrawerItem("HOME", Icons.home),
   new DrawerItem("MY PROFILE", Icons.person),
@@ -56,16 +58,26 @@ State<StatefulWidget> createState() {
 class menuPageState extends State<menuPage> {
   FirebaseUser _user;
   int _selectedDrawerIndex;
+  String username="";
+  String email="";
   @override
   void initState(){
     super.initState();
-    FirebaseAuth.instance.currentUser().then(
-        (user)=>setState(() =>
-           this._user=user
-        )
-    );
+    try {
 
+      FirebaseAuth.instance.currentUser().then(
+              (_user) =>
+              setState(() {
+                this._user = _user;
+              }
+              )
+      );
+    }
+    catch (e) {
+
+    }
   }
+
   void _signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
@@ -105,20 +117,8 @@ class menuPageState extends State<menuPage> {
 
   @override
   Widget build(BuildContext context) {
-    final useremail =Text(_user==null?'You arent logged in.': '${_user.email}');
-    final username =Text(_user==null?'You arent logged in.': '${_user.displayName}');
-    final userid =Text(_user==null?'You arent logged in.': '${_user.uid}');
-    Future<String> getChannelName() async {
-      DocumentSnapshot snapshot= await Firestore.instance.collection('users').document(userid.toString()).get();
-      var usern= snapshot['name'];
-      var em=snapshot['email'];
-      if (usern is String) {
-      return usern;
-      } else {
-      throw 'error';
-      }
-    }
     return new Scaffold(
+
       appBar: new AppBar(
         title:Text(widget.drawerItems[_selectedDrawerIndex].title,style: TextStyle(fontStyle: FontStyle.italic)),
         actions: <Widget>[InkWell(child: Icon(Icons.exit_to_app),onTap: (){_signOut();
@@ -131,23 +131,38 @@ class menuPageState extends State<menuPage> {
       ),
       drawer: new Drawer(
           child: new Container(decoration: new BoxDecoration(color: Colors.white),
-          child: new ListView(
+          child: new FutureBuilder(
+            future: FirebaseAuth.instance.currentUser(),
+            builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
+            if (snapshot.hasData) {
+            return ListView(
             padding: const EdgeInsets.all(0.0),
             children: <Widget> [
-              new UserAccountsDrawerHeader(
-                 accountName: username,
-                  currentAccountPicture:Container(
-                    decoration: new BoxDecoration
-                      (
-                        shape: BoxShape.circle,
-                        image: DecorationImage
-                          (image: NetworkImage("https://pbs.twimg.com/profile_images/958027004724461569/O_AiyJhe_400x400.jpg"),
+            StreamBuilder(
+            stream: Firestore.instance.collection('users').document(_user.uid).snapshots(),
+            builder: (context, snapshot) {
+             if (!snapshot.hasData)
+               return new CircularProgressIndicator();
+             else {
+                 var userDocument = snapshot.data;
+               return new UserAccountsDrawerHeader(
+                   accountName: Text(userDocument['name']),
+                   accountEmail: Text(userDocument["email"]),
+                   decoration: new BoxDecoration(
+                     color: Color.fromRGBO(13, 80, 121, 1.0),),
+                   currentAccountPicture:Container(
+                          decoration: new BoxDecoration
+                            (
+                            shape: BoxShape.circle,
+                            image: DecorationImage
+                           (image: NetworkImage(userDocument['image']),
                             fit: BoxFit.fill
-                        )
-                    ),
-                  ),
-                      accountEmail:  useremail,
-                  decoration: new BoxDecoration(color: Color.fromRGBO(13, 80, 121 , 1.0),)
+                           )
+                           ),
+                     ),
+                 );
+               }
+              }
               ),
               new ListTile(
                 title: new Text('HOME'),
@@ -197,11 +212,18 @@ class menuPageState extends State<menuPage> {
               ),
               new Divider(),
             ],
+          );
+          }
+          else{
+            return CircularProgressIndicator();
+           }
+           }
           )
           )
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
     );
   }
+
 
 }
