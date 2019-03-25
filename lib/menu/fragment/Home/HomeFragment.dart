@@ -7,16 +7,14 @@ void main() => runApp(HomeFragment());
 class HomeFragment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    FirebaseUser _user;
 
     return new Scaffold(
         body: new FutureBuilder(
-    future: FirebaseAuth.instance.currentUser(),
-    builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
-      if (snapshot.hasData) {
-        return SingleChildScrollView(
-
-          child: new Column
+            future: FirebaseAuth.instance.currentUser(),
+           builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
+           if (snapshot.hasData) {
+            return SingleChildScrollView(
+            child: new Column
             (
               children: <Widget>
               [
@@ -24,18 +22,17 @@ class HomeFragment extends StatelessWidget {
                   (
                   constraints: new BoxConstraints
                     (
-                      maxHeight: 560.0,
+                      maxHeight: MediaQuery.of(context).size.height,
                       maxWidth: double.infinity,
-                      minHeight: 560.0,
+                      minHeight: MediaQuery.of(context).size.height,
                       minWidth: double.infinity
-                  ),
+                    ),
                   child: new DecoratedBox(
                     decoration: new BoxDecoration
                       (
                       color: Color.fromRGBO(194, 204, 207, 0.7),
-                      border: new Border.all(
-                          color: Color.fromRGBO(13, 80, 121, 1.0), width: 5.0),
-                    ),
+                      border: new Border.all(color: Color.fromRGBO(13, 80, 121, 1.0), width: 5.0),
+                      ),
                     child: new Column
                       (
                       children: <Widget>[
