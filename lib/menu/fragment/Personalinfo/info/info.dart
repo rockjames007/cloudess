@@ -5,7 +5,10 @@ import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/Al
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/info/infoFragment/AlertBox/EditSecondaryContactDetails.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 void main() => runApp(info());
 class info extends StatefulWidget {
   @override
@@ -15,6 +18,45 @@ class info extends StatefulWidget {
 }
 class _InfoState extends State<info>
 {
+  File sampleImage;
+  FirebaseUser _user;
+  @override
+  void initState(){
+    super.initState();
+    try {
+
+      FirebaseAuth.instance.currentUser().then(
+              (_user) =>
+              setState(() {
+                this._user = _user;
+              }
+              )
+      );
+    }
+    catch (e) {
+
+    }
+  }
+  Future getImage() async {
+    var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      sampleImage = tempImage;
+    });
+    final StorageReference firebaseStorageRef =FirebaseStorage.instance.ref().child('profile').child('profile.jpg');
+    final StorageUploadTask task =await firebaseStorageRef.putFile(sampleImage);
+    final String downloadUrl = await firebaseStorageRef.getDownloadURL();
+    await task.isComplete;
+      await updateData(_user.uid, 'image', downloadUrl);
+  }
+  updateData(selectedDoc,field,newValues) {
+    Firestore.instance
+        .collection('users')
+        .document(selectedDoc.toString())
+        .updateData({field: newValues})
+        .catchError((e) {
+      print(e);
+    });
+  }
   @override
     Widget build(BuildContext context) {
     return new FutureBuilder(
@@ -45,17 +87,21 @@ class _InfoState extends State<info>
                          var userDocument = snapshot.data;
                          return Column(
                              children: <Widget>
-                             [
-                               Container(
-                                 width: 100.0,
-                                 height: 100.0,
-                                 decoration: new BoxDecoration(
-                                     shape: BoxShape.circle,
-                                     image: DecorationImage(image: NetworkImage(userDocument['image']),
-                                         fit: BoxFit.fill
-                                     )
+                             [  GestureDetector(
+                                 child:Container(
+                                   width: 100.0,
+                                   height: 100.0,
+                                   decoration: new BoxDecoration(
+                                       shape: BoxShape.circle,
+                                       image: DecorationImage(image: NetworkImage(userDocument['image']),
+                                           fit: BoxFit.fill
+                                       )
+                                   ),
                                  ),
+                                 onTap:getImage
+
                                ),
+
                                Column(
                                  children: <Widget>[
                                    Container(
