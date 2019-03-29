@@ -9,16 +9,17 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-void main() => runApp(info());
-class info extends StatefulWidget {
+void main() => runApp(Info());
+class Info extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _InfoState();
   }
 }
-class _InfoState extends State<info>
+class _InfoState extends State<Info>
 {
-  File sampleImage;
+  File sampleImage=null;
+  bool _load=false;
   FirebaseUser _user;
   @override
   void initState(){
@@ -42,11 +43,25 @@ class _InfoState extends State<info>
     setState(() {
       sampleImage = tempImage;
     });
-    final StorageReference firebaseStorageRef =FirebaseStorage.instance.ref().child('profile').child('profile.jpg');
-    final StorageUploadTask task =await firebaseStorageRef.putFile(sampleImage);
-    final String downloadUrl = await firebaseStorageRef.getDownloadURL();
-    await task.isComplete;
+    if (sampleImage != null) {
+      final StorageReference firebaseStorageRef = FirebaseStorage.instance.ref()
+          .child('profile')
+          .child('profile.jpg');
+      final StorageUploadTask task = firebaseStorageRef.putFile(sampleImage);
+      if (task.isInProgress) {
+        setState(() {
+          _load = true;
+        });
+      }
+      StorageTaskSnapshot taskSnapshot = await task.onComplete;
+      if (task.isComplete) {
+        setState(() {
+          _load = false;
+        });
+      }
+      final String downloadUrl = await taskSnapshot.ref.getDownloadURL();
       await updateData(_user.uid, 'image', downloadUrl);
+    }
   }
   updateData(selectedDoc,field,newValues) {
     Firestore.instance
@@ -85,23 +100,11 @@ class _InfoState extends State<info>
                          return new CircularProgressIndicator();
                        else {
                          var userDocument = snapshot.data;
+                         String _imageurl=userDocument['image'];
                          return Column(
                              children: <Widget>
-                             [  GestureDetector(
-                                 child:Container(
-                                   width: 100.0,
-                                   height: 100.0,
-                                   decoration: new BoxDecoration(
-                                       shape: BoxShape.circle,
-                                       image: DecorationImage(image: NetworkImage(userDocument['image']),
-                                           fit: BoxFit.fill
-                                       )
-                                   ),
-                                 ),
-                                 onTap:getImage
-
-                               ),
-
+                             [
+                               _loadImage(_imageurl),
                                Column(
                                  children: <Widget>[
                                    Container(
@@ -250,7 +253,7 @@ class _InfoState extends State<info>
                         DateTime doj=userDocument['doj'];
                         var now=DateTime.now();
                         int years = 0;
-                        int months = 0, days=0;
+                        int months = 0;
                         if ((now.month <= doj.month) && (now.day < doj.day))
                             {
                           // example: March 2010 (3) and January 2011 (1); this should be 10 months.  // 12 - 3 + 1 = 10
@@ -687,6 +690,30 @@ class _InfoState extends State<info>
     }
     );
   }
-
+  Widget _loadImage(url) {
+    if (_load == false) {
+      return GestureDetector(
+          child:Container(
+            width: 100.0,
+            height: 100.0,
+            decoration: new BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(image: NetworkImage(url),
+                    fit: BoxFit.fill
+                )
+            ),
+          ),
+          onTap:getImage
+      );
+    }
+    else
+      {
+        return Container(
+          width: 100.0,
+          height: 100.0,
+          child:CircularProgressIndicator()
+        );
+      }
+  }
 }
 

@@ -92,7 +92,7 @@ class PlaceholderWidget extends StatelessWidget {
 
     switch (_selectedBottomIndex) {
       case 0:
-        return new info();
+        return new Info();
       case 1:
         return new Qualification();
       case 2:
