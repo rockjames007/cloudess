@@ -403,103 +403,242 @@ class _InfoState extends State<Info>
                             List<String> repmgr = List.from(
                                 userDocument['repmgr']);
                             List<num> step = List.from(userDocument['step']);
-                            return Card(
-                              child:Container(
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                        color: Color.fromRGBO( 224, 251, 253,1.0),
-                                        child: ListTile(
-                                          dense: true,
-                                          title: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan> [
-                                                      TextSpan(text: "Organization: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                                      TextSpan( text: "Xmplar Management Solutions Private Limited",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan> [
-                                                      TextSpan(text: "Employee Position: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                                      TextSpan(text: "Java Developer",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan>[
-                                                      TextSpan(text: "Employee Position Date Range: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                                      TextSpan(text: "17/01/2018",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan>[
-                                                      TextSpan(text: "Grade: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                                      TextSpan(text: "JME",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan>[
-                                                      TextSpan(text: "Step: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                                      TextSpan(text: step[0].toString(),style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan>[
-                                                      TextSpan(text: "Location: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                                      TextSpan(text: "Bengaluru",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan>[
-                                                      TextSpan(text: "Reporting Manager: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight .bold,fontSize: 13.0)),
-                                                      TextSpan(text: "Sundararajan Aravamudhan",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                              Divider(),
-                                              RichText(
-                                                textAlign: TextAlign.left,
-                                                text: TextSpan(
-                                                    children: <TextSpan>[
-                                                      TextSpan(text: "Remarks: ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold, fontSize: 13.0)),
-                                                      TextSpan(text: "",style: TextStyle(color: Colors.black,fontSize: 13.0)),
-                                                    ]
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            return Container(
+                              child:ListView.builder(
+                                  itemCount: date.length,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, int index) {
+                                    return Card(
+                                     child:
+                                      Container(
+                                        child: Column(
+                                          children: <Widget>[
+                                            Container(
+                                                color: Color.fromRGBO(
+                                                    224, 251, 253, 1.0),
+                                                child: ListTile(
+                                                  dense: true,
+                                                  title: Column(
+                                                    crossAxisAlignment: CrossAxisAlignment
+                                                        .start,
+                                                    children: <Widget>[
+                                                      Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: <Widget>[
+                                                          Container(
+                                                            height: 30.0,
+                                                            width: 30.0,
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(width: 1.0),
+                                                            ),
+                                                            child:RichText(
+                                                              textAlign: TextAlign.center,
+                                                              text:TextSpan(text:(index+1).toString(),style: TextStyle(color: Colors.black,fontSize:25.0 )),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Organization: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: org[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Employee Position: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: emppos[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Employee Position Date Range: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: date[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Grade: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: grade[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Step: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: step[index].toString(),
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Location: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: loc[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Reporting Manager: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(
+                                                                  text: repmgr[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                      Divider(),
+                                                      RichText(
+                                                        textAlign: TextAlign
+                                                            .left,
+                                                        text: TextSpan(
+                                                            children: <
+                                                                TextSpan>[
+                                                              TextSpan(
+                                                                  text: "Remarks: ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight: FontWeight
+                                                                          .bold,
+                                                                      fontSize: 13.0)),
+                                                              TextSpan(text: remarks[index],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontSize: 13.0)),
+                                                            ]
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }
+                            )
                             );
                           }
                         }
