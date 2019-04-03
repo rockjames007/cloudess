@@ -384,28 +384,14 @@ class _InfoState extends State<Info>
                         title:Text('Positional Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),),
                       ),
                       StreamBuilder(
-                         stream: Firestore.instance.collection('users').document(snapshot.data.uid).collection('myprofile').document('posdetails').snapshots(),
+                         stream: Firestore.instance.collection('users').document(snapshot.data.uid).collection('myprofile').document('posdetails').collection('det').snapshots(),
                         builder: (context, snapshot) {
                           if (!snapshot.hasData)
                             return new CircularProgressIndicator();
                           else {
-                            var userDocument = snapshot.data;
-                            List<String> date = List.from(
-                                userDocument['empdaterange']);
-                            List<String> emppos = List.from(
-                                userDocument['emppos']);
-                            List<String> grade = List.from(
-                                userDocument['grade']);
-                            List<String> loc = List.from(userDocument['loc']);
-                            List<String> org = List.from(userDocument['org']);
-                            List<String> remarks = List.from(
-                                userDocument['remarks']);
-                            List<String> repmgr = List.from(
-                                userDocument['repmgr']);
-                            List<num> step = List.from(userDocument['step']);
                             return Container(
                               child:ListView.builder(
-                                  itemCount: date.length,
+                                  itemCount: snapshot.data.documents.length,
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
                                   itemBuilder: (context, int index) {
@@ -454,7 +440,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: org[index],
+                                                                  text: snapshot.data.documents[index]['org'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -478,7 +464,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: emppos[index],
+                                                                  text:snapshot.data.documents[index]['emppos'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -502,7 +488,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: date[index],
+                                                                  text: snapshot.data.documents[index]['date'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -526,7 +512,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: grade[index],
+                                                                  text: snapshot.data.documents[index]['grade'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -550,7 +536,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: step[index].toString(),
+                                                                  text: snapshot.data.documents[index]['step'].toString(),
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -574,7 +560,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: loc[index],
+                                                                  text: snapshot.data.documents[index]['loc'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -598,7 +584,7 @@ class _InfoState extends State<Info>
                                                                           .bold,
                                                                       fontSize: 13.0)),
                                                               TextSpan(
-                                                                  text: repmgr[index],
+                                                                  text: snapshot.data.documents[index]['repmgr'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -621,7 +607,7 @@ class _InfoState extends State<Info>
                                                                       fontWeight: FontWeight
                                                                           .bold,
                                                                       fontSize: 13.0)),
-                                                              TextSpan(text: remarks[index],
+                                                              TextSpan(text: snapshot.data.documents[index]['remarks'],
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,

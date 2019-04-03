@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:intl/intl.dart';
 void main()=>runApp(Qualification());
 
 class Qualification extends StatefulWidget {
@@ -34,9 +34,9 @@ class _QualiState extends State<Qualification>
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: FirebaseAuth.instance.currentUser(),
-       builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
-          if (snapshot.hasData) {
+    future: FirebaseAuth.instance.currentUser(),
+    builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
+    if (snapshot.hasData) {
          return Scaffold(
             floatingActionButton:FloatingActionButton(onPressed: null,child: Icon(Icons.add),),
                  backgroundColor:Color.fromRGBO(13, 80, 121 , 1.0),
@@ -216,7 +216,7 @@ class _QualiState extends State<Qualification>
                                                                     .bold,
                                                                 fontSize: 13.0)),
                                                         TextSpan(
-                                                            text: snapshot.data.documents[index]['fromd'].toString(),
+                                                            text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]['fromd']),
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .black,
@@ -238,7 +238,7 @@ class _QualiState extends State<Qualification>
                                                                     .bold,
                                                                 fontSize: 13.0)),
                                                         TextSpan(
-                                                            text: snapshot.data.documents[index]['thrud'].toString(),
+                                                            text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]['thrud']),
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .black,
