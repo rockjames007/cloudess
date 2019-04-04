@@ -3,20 +3,20 @@ import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-void main() => runApp(AddTrainingDetails());
-class AddTrainingDetails extends StatefulWidget {
+void main() => runApp(AddFamilyDetails());
+class AddFamilyDetails extends StatefulWidget {
   State<StatefulWidget> createState() {
-    return _AddTrainingDetailsState();
+    return _AddFamilyDetailState();
   }
 }
-class _AddTrainingDetailsState extends State<AddTrainingDetails>
+class _AddFamilyDetailState extends State<AddFamilyDetails>
 {  int _currentIndex = 0;
-List<String> _trainings = <String>['Certification','Training','Training come Certification'];
-String _training = 'Certification';
-DateTime _fromdate=null;
-DateTime _thrudate=null;
+List<String> _types = <String>['Mother','Father','Brother','Sister','Wife','Husband','Son','Daughter'];
+String _type = 'Mother';
+DateTime _dobdate=null;
 FirebaseUser _user;
 final nameController = TextEditingController();
+final phoneController = TextEditingController();
 @override
 void initState(){
   super.initState();
@@ -29,11 +29,13 @@ void initState(){
             }
             )
     );
-
   }
   catch (e) {
   }
 }
+int _value2=0,_value3=0;
+void _setvalue2(int value) => setState(() => _value2 = value);
+void _setvalue3(int value) => setState(() => _value3 = value);
 @override
 Widget build(BuildContext context) {
   return AlertDialog(
@@ -46,14 +48,13 @@ Widget build(BuildContext context) {
       child:Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Add Training Details',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white),textAlign: TextAlign.center, ),
+            Text('Add Family Member',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,color: Colors.white),textAlign: TextAlign.center, ),
           ] ),
     ),
     contentPadding:EdgeInsets.all(0.0),
     content: SingleChildScrollView(
       child:
       new Container(
-        height: 275.0,
         child: Column(
           children: <Widget>[
                 ListTile(
@@ -61,19 +62,19 @@ Widget build(BuildContext context) {
                     children: <Widget>[
                       new InputDecorator(
                         decoration: const InputDecoration(
-                          icon: const Icon(Icons.receipt),
-                          labelText: 'Training Type',
+                          icon: const Icon(Icons.person),
+                          labelText: 'Relationship Type:',
                         ),
                         child: new DropdownButtonHideUnderline(
                           child: new DropdownButton<String>(
-                            value: _training,
+                            value: _type,
                             isDense: true,
                             onChanged: (String newValue) {
                               setState(() {
-                                _training = newValue;
+                                _type = newValue;
                               });
                             },
-                            items: _trainings.map((String value) {
+                            items: _types.map((String value) {
                               return new DropdownMenuItem<String>(
                                 value: value,
                                 child: new Text(value,style: TextStyle(fontSize: 15.0),),
@@ -89,35 +90,54 @@ Widget build(BuildContext context) {
               title:new TextFormField(
               decoration: const InputDecoration(
               icon: const Icon(Icons.location_city),
-              labelText: 'Training Description:',
+              labelText: 'Name:',
                ),
                 controller: nameController,
                ),
               ),
                 ListTile(
-                  title:DateTimePickerFormField( format: DateFormat("dd/MM/yyyy"),
-                      textAlign: TextAlign.start,
-                      dateOnly: true,
-                      decoration: new InputDecoration(icon: const Icon(Icons.calendar_today),labelText: "From Date"),
-                      onChanged: (DateTime newValue) {
-                       setState(() {
-                         _fromdate=newValue;
-                       });
-                      }
-                  ) ,
+                  leading: Icon(Icons.person),
+                  title:new Row(
+                    children: <Widget>[
+                      RichText(text: TextSpan(text:"Male:",style: TextStyle(color: Colors.black))),
+                      Radio(value: 0, groupValue: _value2, onChanged: _setvalue2),
+                      RichText(text: TextSpan(text:"Female:",style: TextStyle(color: Colors.black))),
+                      Radio(value: 1, groupValue: _value2, onChanged: _setvalue2),
+                    ],
+                  ),
                 ),
                 ListTile(
                   title:DateTimePickerFormField( format: DateFormat("dd/MM/yyyy"),
                       textAlign: TextAlign.start,
                       dateOnly: true,
-                      decoration: new InputDecoration(icon: const Icon(Icons.calendar_view_day),labelText: "Thru Date"),
+                      decoration: new InputDecoration(icon: const Icon(Icons.calendar_today),labelText: "Date of Birth"),
                       onChanged: (DateTime newValue) {
-                        setState(() {
-                          _thrudate=newValue;
-                        });
+                       setState(() {
+                         _dobdate=newValue;
+                       });
                       }
                   ) ,
-                )
+                ),
+                ListTile(
+                  leading: RichText(text: TextSpan(text:"Dependent:",style: TextStyle(color: Colors.black))),
+                  title:new Row(
+                    children: <Widget>[
+                      RichText(text: TextSpan(text:"Yes:",style: TextStyle(color: Colors.black))),
+                      Radio(value: 0, groupValue: _value3, onChanged: _setvalue3),
+                      RichText(text: TextSpan(text:"No:",style: TextStyle(color: Colors.black))),
+                      Radio(value: 1, groupValue: _value3, onChanged: _setvalue3),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  title:new TextFormField(
+                    decoration: const InputDecoration(
+                      icon: const Icon(Icons.phone),
+                      labelText: 'Phone No:',
+                    ),
+                    controller: phoneController,
+                  ),
+                ),
           ],
         ),
       ),
@@ -128,15 +148,27 @@ Widget build(BuildContext context) {
       new FlatButton(
           child: new Text("Save"),
           onPressed: () {
-            if (_fromdate!=null &&_thrudate!=null) {
+            String gen=null;
+            String dep=null;
+            if (_dobdate!=null) {
+              if(_value2==0)
+                gen="Male";
+              else
+                gen="Female";
+              if(_value3==0)
+                dep="Yes";
+              else
+                dep="No";
              Firestore.instance.runTransaction((transaction) async {
                await transaction.set(
-                   Firestore.instance.collection("users").document(_user.uid).collection('training').document(),
+                   Firestore.instance.collection("users").document(_user.uid).collection('family').document(),
                    {
-                       'type': _training,
+                       'type': _type,
                        'name': nameController.text,
-                       'fromd': _fromdate,
-                       'thrud':_thrudate
+                       'gender':gen,
+                       'dob': _dobdate,
+                       'depend':dep,
+                       'phone':phoneController.text
                    });
              }
              );
@@ -153,4 +185,5 @@ Widget build(BuildContext context) {
     ],
   );
 }
+
 }
