@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/services.dart';
+import 'package:xmplaressflutter/menu/fragment/Personalinfo/document/AlertBox/AddDocumentDetails.dart';
 void main()=>runApp(Document());
 
 class Document extends StatefulWidget {
@@ -36,7 +38,11 @@ class _DocumentState extends State<Document>
     builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
     if (snapshot.hasData) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: null,child: Icon(Icons.add),),
+      floatingActionButton: FloatingActionButton(onPressed: (){ showDialog(context: context,
+          builder: (BuildContext context) {
+            HapticFeedback.vibrate();
+            return AddDocumentDetails();
+          }); },child: Icon(Icons.add),),
       backgroundColor:Color.fromRGBO(13, 80, 121 , 1.0),
       body:new Container(
       child: new SingleChildScrollView(
@@ -97,7 +103,9 @@ class _DocumentState extends State<Document>
                                     Row(
                                       children: <Widget>[
                                         FloatingActionButton(onPressed: null, child: Icon(Icons.remove_red_eye), mini: true, ),
-                                        FloatingActionButton(onPressed: null, child: Icon(Icons.delete), mini: true, ),
+                                        FloatingActionButton(onPressed: (){ Firestore.instance.runTransaction((Transaction myTransaction) async {
+                                          await myTransaction.delete(snapshot.data.documents[index].reference);
+                                        });}, child: Icon(Icons.delete), mini: true, ),
                                       ],
                                     )
                                   ],
