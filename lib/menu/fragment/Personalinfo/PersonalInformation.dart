@@ -6,7 +6,9 @@ import 'package:xmplaressflutter/menu/fragment/Personalinfo/bankDetails/BankDeta
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/fixedAsset/FixedAsset.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/family/Family.dart';
 import 'package:xmplaressflutter/menu/fragment/Personalinfo/TrainingDetails/TrainingDetailsFragment.dart';
+
 void main() => runApp(PersonalInformation());
+
 class PersonalInformation extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -14,82 +16,92 @@ class PersonalInformation extends StatefulWidget {
   }
 }
 
-class _UserInfoState extends State<PersonalInformation>
-{
+class _UserInfoState extends State<PersonalInformation> {
   int _currentIndex = 0;
-  final List<Widget> _children = [PlaceholderWidget(0),
-  PlaceholderWidget(1),
-  PlaceholderWidget(2),
-  PlaceholderWidget(3),
-  PlaceholderWidget(4),
-  PlaceholderWidget(5),
-  PlaceholderWidget(6),
+  final List<Widget> _children = [
+    PlaceholderWidget(0),
+    PlaceholderWidget(1),
+    PlaceholderWidget(2),
+    PlaceholderWidget(3),
+    PlaceholderWidget(4),
+    PlaceholderWidget(5),
+    PlaceholderWidget(6),
   ];
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: _children[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar
-        (
-        type: BottomNavigationBarType.fixed,// new
-          onTap: onTabTapped, // new
-          currentIndex: _currentIndex, //
-        items:
-        [
-          BottomNavigationBarItem
-            (
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed, // new
+        onTap: onTabTapped, // new
+        currentIndex: _currentIndex, //
+        items: [
+          BottomNavigationBarItem(
             icon: new Icon(Icons.info),
-            title: new Text('Basic Info', textScaleFactor: 0.5,),
+            title: new Text(
+              'Basic Info',
+              textScaleFactor: 0.5,
+            ),
           ),
-          BottomNavigationBarItem
-            (
+          BottomNavigationBarItem(
             icon: new Icon(Icons.school),
-            title: new Text('Qualification', textScaleFactor: 0.5,),
+            title: new Text(
+              'Qualification',
+              textScaleFactor: 0.5,
+            ),
           ),
-          BottomNavigationBarItem
-            (
+          BottomNavigationBarItem(
               icon: Icon(Icons.picture_as_pdf),
-              title: Text('Document', textScaleFactor: 0.5,)
-          ),
-          BottomNavigationBarItem
-            (
+              title: Text(
+                'Document',
+                textScaleFactor: 0.5,
+              )),
+          BottomNavigationBarItem(
               icon: Icon(Icons.account_balance),
-              title: Text('Bank Details', textScaleFactor: 0.5,)
-          ),
-          BottomNavigationBarItem
-            (
+              title: Text(
+                'Bank Details',
+                textScaleFactor: 0.5,
+              )),
+          BottomNavigationBarItem(
               icon: Icon(Icons.verified_user),
-              title: Text('Fixed Asset', textScaleFactor: 0.5,)
-          ),
-          BottomNavigationBarItem
-            (
+              title: Text(
+                'Fixed Asset',
+                textScaleFactor: 0.5,
+              )),
+          BottomNavigationBarItem(
               icon: Icon(Icons.people),
-              title: Text('Family', textScaleFactor: 0.5,)
-          ),
-          BottomNavigationBarItem
-            (
+              title: Text(
+                'Family',
+                textScaleFactor: 0.5,
+              )),
+          BottomNavigationBarItem(
               icon: Icon(Icons.assignment),
-              title: Text('Training Details', textScaleFactor: 0.5,)
-          ),
+              title: Text(
+                'Training Details',
+                textScaleFactor: 0.5,
+              )),
         ],
-
       ),
-    ) ;
+    );
   }
+
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
     });
   }
 }
+
 class PlaceholderWidget extends StatelessWidget {
   int _selectedBottomIndex;
+
   PlaceholderWidget(int pos) {
-    _selectedBottomIndex=pos;
+    _selectedBottomIndex = pos;
   }
+
   @override
   Widget build(BuildContext context) {
-
     switch (_selectedBottomIndex) {
       case 0:
         return new Info();
@@ -106,5 +118,5 @@ class PlaceholderWidget extends StatelessWidget {
       case 6:
         return new TrainingDetailsFragment();
     }
-    }
   }
+}

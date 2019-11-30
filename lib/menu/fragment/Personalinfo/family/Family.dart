@@ -161,7 +161,7 @@ class _FamilyState extends State<Family>
                                       text: TextSpan(children: <TextSpan>
                                       [
                                         TextSpan(text:"Date Of Birth ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13.0)),
-                                        TextSpan(text:DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]['dob']),style: TextStyle(color: Colors.black,fontSize: 13.0)),
+                                        TextSpan(text:DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]['dob'].toDate()),style: TextStyle(color: Colors.black,fontSize: 13.0)),
                                       ]
                                       ),
                                     ),

@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<Post> fetchPost() async {
   final response =
-  await http.get('https://jsonplaceholder.typicode.com/posts/1');
+      await http.get('https://jsonplaceholder.typicode.com/posts/1');
 
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON
@@ -15,6 +15,7 @@ Future<Post> fetchPost() async {
     throw Exception('Failed to load post');
   }
 }
+
 class Post {
   final int userId;
   final int id;
@@ -39,21 +40,24 @@ class PayStatement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: FutureBuilder<Post>(
-            future: fetchPost(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data.body,style: TextStyle(color: Colors.red),);
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
+      body: Center(
+        child: FutureBuilder<Post>(
+          future: fetchPost(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Text(
+                snapshot.data.body,
+                style: TextStyle(color: Colors.red),
+              );
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
 
-              // By default, show a loading spinner
-              return CircularProgressIndicator();
-            },
-          ),
+            // By default, show a loading spinner
+            return CircularProgressIndicator();
+          },
         ),
+      ),
     );
   }
 }

@@ -144,7 +144,7 @@ class _InfoState extends State<Info>
                      return new CircularProgressIndicator();
                    else {
                      var userDocument = snapshot.data;
-                     String formattedDate = DateFormat("dd MMM, yyyy").format(userDocument['dob']);
+                     String formattedDate = DateFormat("dd MMM, yyyy").format(userDocument['dob'].toDate());
                      return Card(
                        child: Container(
                          child: Column(
@@ -250,7 +250,7 @@ class _InfoState extends State<Info>
                       else {
                         var userDocument = snapshot.data;
                         var past=userDocument['pastexp'];
-                        DateTime doj=userDocument['doj'];
+                        DateTime doj=userDocument['doj'].toDate();
                         var now=DateTime.now();
                         int years = 0;
                         int months = 0;

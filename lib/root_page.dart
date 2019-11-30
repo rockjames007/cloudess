@@ -3,7 +3,6 @@ import 'package:xmplaressflutter/auth.dart';
 import 'package:xmplaressflutter/login/loginpage.dart';
 import 'package:xmplaressflutter/menu/menu.dart';
 
-
 class RootPage extends StatefulWidget {
   RootPage({Key key, this.auth}) : super(key: key);
   final BaseAuth auth;
@@ -20,11 +19,13 @@ enum AuthStatus {
 
 class _RootPageState extends State<RootPage> {
   AuthStatus authStatus = AuthStatus.notDetermined;
+
   initState() {
     super.initState();
     widget.auth.currentUser().then((userId) {
       setState(() {
-        authStatus = userId != null ? AuthStatus.signedIn : AuthStatus.notSignedIn;
+        authStatus =
+            userId != null ? AuthStatus.signedIn : AuthStatus.notSignedIn;
       });
     });
   }
@@ -50,6 +51,7 @@ class _RootPageState extends State<RootPage> {
         return new Menu(0);
     }
   }
+
   Widget _buildWaitingScreen() {
     return Scaffold(
       body: Container(
