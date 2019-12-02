@@ -66,7 +66,8 @@ class menuPageState extends State<menuPage> {
   void initState() {
     super.initState();
     try {
-      FirebaseAuth.instance.currentUser().then((_user) => setState(() {
+      FirebaseAuth.instance.currentUser().then((_user) =>
+          setState(() {
             this._user = _user;
           }));
     } catch (e) {}
@@ -117,13 +118,8 @@ class menuPageState extends State<menuPage> {
             style: TextStyle(fontStyle: FontStyle.italic)),
         actions: <Widget>[
           InkWell(
-              child: Icon(Icons.exit_to_app),
-              onTap: () {
-                _signOut();
-                Route route = MaterialPageRoute(
-                    builder: (context) => RootPage(auth: new Auth()));
-                Navigator.pushReplacement(context, route);
-              })
+              child: Icon(Icons.notifications),
+              onTap: () {})
         ],
         centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 80, 121, 1.0),
