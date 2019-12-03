@@ -261,9 +261,7 @@ class _DocumentState extends State<Document> {
                                                                               fontWeight: FontWeight.bold,
                                                                               fontSize: 13.0)),
                                                                       TextSpan(
-                                                                          text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]
-                                                                              [
-                                                                              'issued']),
+                                                                          text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]['issued'] ),
                                                                           style: TextStyle(
                                                                               color: Colors.black,
                                                                               fontSize: 13.0)),
@@ -285,9 +283,10 @@ class _DocumentState extends State<Document> {
                                                                               fontWeight: FontWeight.bold,
                                                                               fontSize: 13.0)),
                                                                       TextSpan(
-                                                                          text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]
-                                                                              [
-                                                                              'expiry']),
+                                                                          text: DateFormat("dd/MM/yyyy").format(snapshot
+                                                                              .data
+                                                                              .documents[index][
+                                                                                  'expiry'].toDate()),
                                                                           style: TextStyle(
                                                                               color: Colors.black,
                                                                               fontSize: 13.0)),

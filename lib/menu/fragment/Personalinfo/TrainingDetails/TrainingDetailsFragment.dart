@@ -224,9 +224,11 @@ class _TrainingDetailsFragmentState extends State<TrainingDetailsFragment> {
                                                                             fontWeight: FontWeight.bold,
                                                                             fontSize: 13.0)),
                                                                     TextSpan(
-                                                                        text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]
-                                                                            [
-                                                                            'fromd']),
+                                                                        text: DateFormat("dd/MM/yyyy").format(snapshot
+                                                                            .data
+                                                                            .documents[index][
+                                                                                'fromd']
+                                                                            .toDate()),
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.black,
@@ -250,9 +252,11 @@ class _TrainingDetailsFragmentState extends State<TrainingDetailsFragment> {
                                                                             fontWeight: FontWeight.bold,
                                                                             fontSize: 13.0)),
                                                                     TextSpan(
-                                                                        text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]
-                                                                            [
-                                                                            'thrud']),
+                                                                        text: DateFormat("dd/MM/yyyy").format(snapshot
+                                                                            .data
+                                                                            .documents[index][
+                                                                                'thrud']
+                                                                            .toDate()),
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.black,

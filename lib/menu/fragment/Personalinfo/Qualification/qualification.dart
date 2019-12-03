@@ -282,7 +282,7 @@ class _QualiState extends State<Qualification> {
                                                                       TextSpan(
                                                                           text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]
                                                                               [
-                                                                              'fromd']),
+                                                                              'fromd'].toDate()),
                                                                           style: TextStyle(
                                                                               color: Colors.black,
                                                                               fontSize: 13.0)),
@@ -306,7 +306,7 @@ class _QualiState extends State<Qualification> {
                                                                       TextSpan(
                                                                           text: DateFormat("dd/MM/yyyy").format(snapshot.data.documents[index]
                                                                               [
-                                                                              'thrud']),
+                                                                              'thrud'].toDate()),
                                                                           style: TextStyle(
                                                                               color: Colors.black,
                                                                               fontSize: 13.0)),
